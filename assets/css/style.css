@@ -1,0 +1,233 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #fdf6f9;
+    color: #333;
+}
+
+.topbar {
+    background: #f8d7da;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.topbar a {
+    margin-left: 12px;
+    text-decoration: none;
+    color: #7a4e57;
+    font-weight: bold;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 30px auto;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    overflow: hidden;
+    border: 1px solid #f1d4db;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 10px;
+    background: #f4b6c2;
+    color: #fff;
+    padding: 10px 16px;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background: #e89aaa;
+}
+.auth-container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fdf6f9;
+}
+
+.auth-card {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 18px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+    width: 360px;
+    border: 1px solid #f1d4db;
+}
+
+.auth-card h1 {
+    margin-top: 0;
+    color: #7a4e57;
+    text-align: center;
+}
+
+.auth-card form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.auth-card input {
+    padding: 12px;
+    border: 1px solid #e5c7cf;
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+.auth-card p {
+    text-align: center;
+}
+
+.message {
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.error {
+    background: #fde2e4;
+    color: #8a3d4b;
+}
+.success {
+    background: #e7f6ea;
+    color: #2f6b3d;
+}
+
+.legend {
+    display: flex;
+    gap: 20px;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+.screen {
+    width: 100%;
+    max-width: 500px;
+    margin: 20px auto;
+    text-align: center;
+    padding: 12px;
+    background: #eadde3;
+    border-radius: 12px;
+    font-weight: bold;
+    color: #7a4e57;
+}
+
+.hall {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin: 30px 0;
+}
+
+.hall-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.row-label {
+    width: 70px;
+    font-weight: bold;
+    color: #7a4e57;
+}
+
+.seat-label {
+    display: inline-block;
+}
+
+.seat-input {
+    display: none;
+}
+
+.seat {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    cursor: pointer;
+    color: #333;
+    font-weight: bold;
+}
+
+.seat.free {
+    background: #bde5c8;
+}
+
+.seat.booked {
+    background: #f3a6a6;
+    cursor: not-allowed;
+}
+
+.seat.selected {
+    background: #f7df8b;
+}
+
+.admin-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.admin-form input,
+.admin-form textarea,
+.admin-form select {
+    padding: 12px;
+    border: 1px solid #e5c7cf;
+    border-radius: 10px;
+    font-size: 14px;
+    font-family: inherit;
+}
+
+.admin-form textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: #fff;
+}
+
+.admin-table th,
+.admin-table td {
+    border: 1px solid #f1d4db;
+    padding: 12px;
+    text-align: left;
+}
+
+.admin-table th {
+    background: #fbe7ec;
+    color: #7a4e57;
+}
+
+.btn-delete {
+    color: #b94b5d;
+    text-decoration: none;
+    font-weight: bold;
+}
