@@ -21,6 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_session'])) {
             VALUES (?, ?, ?, ?)
         ");
         $stmt->execute([$filmId, $sessionDate, $sessionTime, $hallName]);
+
         $message = 'Сеанс добавлен.';
     } else {
         $message = 'Заполните все поля.';
@@ -28,9 +29,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_session'])) {
 }
 
 if (isset($_GET['delete']) && is_numeric($_GET['delete'])) {
-    $sessionId = (int)$_GET['delete'];
+    $sessionId = (int) $_GET['delete'];
+
     $stmt = $pdo->prepare("DELETE FROM sessions WHERE id = ?");
     $stmt->execute([$sessionId]);
+
     header('Location: sessions.php');
     exit;
 }
@@ -57,74 +60,80 @@ $sessions = $pdo->query("
     <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
-    <header class="topbar">
-        <h1>Управление сеансами</h1>
-        <nav>
-            <a href="dashboard.php">Админ-панель</a>
-            <a href="films.php">Фильмы</a>
-            <a href="bookings.php">Бронирования</a>
-            <a href="../index.php">На сайт</a>
-        </nav>
-    </header>
 
-    <main class="container">
-        <?php if (!empty($message)): ?>
-            <p class="message success"><?= htmlspecialchars($message) ?></p>
-        <?php endif; ?>
+<header class="topbar">
+    <h1>Управление сеансами</h1>
+    <nav>
+        <a href="dashboard.php">Админ панель</a>
+        <a href="films.php">Фильмы</a>
+        <a href="bookings.php">Бронирования</a>
+        <a href="../index.php">На сайт</a>
+    </nav>
+</header>
 
-        <div class="card">
-            <div class="card-body">
-                <h2>Добавить сеанс</h2>
-                <form method="POST" class="admin-form">
-                    <input type="hidden" name="add_session" value="1">
+<main class="container">
 
-                    <select name="film_id" required>
-                        <option value="">Выберите фильм</option>
-                        <?php foreach ($films as $film): ?>
-                            <option value="<?= $film['id'] ?>">
-                                <?= htmlspecialchars($film['title']) ?>
-                            </option>
-                        <?php endforeach; ?>
-                    </select>
+    <?php if (!empty($message)): ?>
+        <p class="message success"><?= htmlspecialchars($message) ?></p>
+    <?php endif; ?>
 
-                    <input type="date" name="session_date" required>
-                    <input type="time" name="session_time" required>
-                    <input type="text" name="hall_name" placeholder="Название зала" required>
+    <div class="card">
+        <div class="card-body">
+            <h2>Добавить сеанс</h2>
 
-                    <button type="submit" class="btn">Добавить сеанс</button>
-                </form>
-            </div>
-        </div>
+            <form method="POST" class="admin-form">
+                <input type="hidden" name="add_session" value="1">
 
-        <div class="card">
-            <div class="card-body">
-                <h2>Расписание сеансов</h2>
-                <table class="admin-table">
-                    <tr>
-                        <th>ID</th>
-                        <th>Фильм</th>
-                        <th>Дата</th>
-                        <th>Время</th>
-                        <th>Зал</th>
-                        <th>Действие</th>
-                    </tr>
-                    <?php foreach ($sessions as $item): ?>
-                        <tr>
-                            <td><?= $item['id'] ?></td>
-                            <td><?= htmlspecialchars($item['title']) ?></td>
-                            <td><?= htmlspecialchars($item['session_date']) ?></td>
-                            <td><?= htmlspecialchars($item['session_time']) ?></td>
-                            <td><?= htmlspecialchars($item['hall_name']) ?></td>
-                            <td>
-                                <a class="btn-delete" href="sessions.php?delete=<?= $item['id'] ?>" onclick="return confirm('Удалить сеанс?')">
-                                    Удалить
-                                </a>
-                            </td>
-                        </tr>
+                <select name="film_id" required>
+                    <option value="">Выберите фильм</option>
+                    <?php foreach ($films as $film): ?>
+                        <option value="<?= $film['id'] ?>">
+                            <?= htmlspecialchars($film['title']) ?>
+                        </option>
                     <?php endforeach; ?>
-                </table>
-            </div>
+                </select>
+
+                <input type="date" name="session_date" required>
+                <input type="time" name="session_time" required>
+                <input type="text" name="hall_name" placeholder="Название зала" required>
+
+                <button type="submit" class="btn">Добавить сеанс</button>
+            </form>
         </div>
-    </main>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            <h2>Расписание сеансов</h2>
+
+            <table class="admin-table">
+                <tr>
+                    <th>ID</th>
+                    <th>Фильм</th>
+                    <th>Дата</th>
+                    <th>Время</th>
+                    <th>Зал</th>
+                    <th>Действия</th>
+                </tr>
+
+                <?php foreach ($sessions as $item): ?>
+                    <tr>
+                        <td><?= $item['id'] ?></td>
+                        <td><?= htmlspecialchars($item['title']) ?></td>
+                        <td><?= htmlspecialchars($item['session_date']) ?></td>
+                        <td><?= htmlspecialchars($item['session_time']) ?></td>
+                        <td><?= htmlspecialchars($item['hall_name']) ?></td>
+                        <td>
+                            <a class="btn-edit" href="edit_session.php?id=<?= $item['id'] ?>">Редактировать</a>
+                            <a class="btn-delete" href="sessions.php?delete=<?= $item['id'] ?>" onclick="return confirm('Удалить сеанс?')">Удалить</a>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </table>
+        </div>
+    </div>
+
+</main>
+
 </body>
 </html>

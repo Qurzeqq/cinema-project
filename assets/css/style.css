@@ -231,3 +231,360 @@ body {
     text-decoration: none;
     font-weight: bold;
 }
+.hero {
+    margin-bottom: 30px;
+}
+
+.hero-box {
+    background: linear-gradient(135deg, #f8d7da, #fdf1f4);
+    padding: 28px;
+    border-radius: 20px;
+    border: 1px solid #f1d4db;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+
+.hero-box h2 {
+    margin: 0 0 10px;
+    color: #7a4e57;
+}
+
+.hero-box p {
+    margin: 0;
+}
+
+.user-email {
+    color: #7a4e57;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.cinema-cards {
+    align-items: stretch;
+}
+
+.movie-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.movie-poster-wrap {
+    width: 100%;
+    height: 360px;
+    overflow: hidden;
+    background: #f8eef1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.movie-poster {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.movie-poster-placeholder {
+    color: #9a6b75;
+    font-weight: bold;
+}
+
+.movie-description {
+    min-height: 72px;
+}
+
+.admin-poster {
+    width: 70px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #f1d4db;
+}
+.section-title{
+margin-bottom:25px;
+color:#7a4e57;
+}
+
+/* сетка фильмов */
+
+.movie-grid{
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+gap:25px;
+}
+
+/* карточка фильма */
+
+.movie-card{
+
+background:white;
+
+border-radius:18px;
+
+border:1px solid #f1d4db;
+
+box-shadow:0 4px 14px rgba(0,0,0,0.08);
+
+display:flex;
+
+flex-direction:column;
+
+transition:0.2s;
+}
+
+.movie-card:hover{
+
+transform:translateY(-4px);
+
+box-shadow:0 10px 22px rgba(0,0,0,0.12);
+}
+
+/* заголовок */
+
+.movie-header{
+
+padding:18px;
+
+background:#f8d7da;
+
+border-radius:18px 18px 0 0;
+}
+
+.movie-header h3{
+margin:0;
+color:#7a4e57;
+}
+
+/* тело карточки */
+
+.movie-body{
+
+padding:18px;
+
+flex:1;
+}
+
+.movie-description{
+
+font-size:14px;
+
+margin-bottom:15px;
+
+color:#555;
+
+min-height:60px;
+}
+
+/* инфо фильма */
+
+.movie-info{
+
+display:flex;
+
+flex-direction:column;
+
+gap:6px;
+
+font-size:14px;
+}
+
+/* футер */
+
+.movie-footer{
+
+padding:18px;
+}
+
+/* кнопка бронирования */
+
+.btn-book{
+
+display:block;
+
+text-align:center;
+
+background:#f4b6c2;
+
+padding:12px;
+
+border-radius:12px;
+
+text-decoration:none;
+
+color:white;
+
+font-weight:bold;
+
+transition:0.2s;
+}
+
+.btn-book:hover{
+
+background:#e89aaa;
+}
+.booking-page {
+    max-width: 1100px;
+}
+
+.booking-session-card {
+    margin-bottom: 24px;
+}
+
+.booking-meta {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(220px, 1fr));
+    gap: 12px;
+    margin-top: 18px;
+}
+
+.booking-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.booking-legend {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 18px 20px;
+    background: #fff;
+    border: 1px solid #f1d4db;
+    border-radius: 18px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.hall-wrapper {
+    background: #fff;
+    border: 1px solid #f1d4db;
+    border-radius: 22px;
+    padding: 28px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+}
+
+.screen {
+    width: 100%;
+    max-width: 620px;
+    margin: 0 auto 34px;
+    text-align: center;
+    padding: 16px;
+    background: #eadde3;
+    border-radius: 16px;
+    font-weight: bold;
+    font-size: 24px;
+    color: #7a4e57;
+    letter-spacing: 0.5px;
+}
+
+.booking-form {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    align-items: center;
+}
+
+.hall-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+    max-width: 760px;
+}
+
+.hall-grid-row {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    align-items: center;
+    gap: 18px;
+}
+
+.row-label {
+    font-weight: bold;
+    color: #7a4e57;
+    font-size: 24px;
+    white-space: nowrap;
+}
+
+.row-seats {
+    display: grid;
+    grid-template-columns: repeat(8, 48px);
+    gap: 12px;
+    justify-content: start;
+}
+
+.seat-label {
+    display: inline-flex;
+}
+
+.seat-input {
+    display: none;
+}
+
+.seat {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    cursor: pointer;
+    color: #333;
+    font-weight: bold;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.seat.free {
+    background: #bde5c8;
+}
+
+.seat.free:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+}
+
+.seat.booked {
+    background: #f3a6a6;
+    cursor: not-allowed;
+}
+
+.seat.selected,
+.seat.selected.demo {
+    background: #f7df8b;
+}
+
+.booking-submit-btn {
+    min-width: 280px;
+}
+
+@media (max-width: 900px) {
+    .hall-grid-row {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .row-label {
+        font-size: 18px;
+    }
+
+    .row-seats {
+        grid-template-columns: repeat(4, 48px);
+    }
+
+    .booking-meta {
+        grid-template-columns: 1fr;
+    }
+}
+.btn-edit {
+    color: #7a4e57;
+    text-decoration: none;
+    font-weight: bold;
+    margin-right: 12px;
+}
