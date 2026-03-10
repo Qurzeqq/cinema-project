@@ -38,9 +38,12 @@ if (isset($_GET['delete']) && is_numeric($_GET['delete'])) {
     exit;
 }
 
+$search = trim($_GET['search'] ?? '');
+$dateFilter = trim($_GET['session_date'] ?? '');
+
 $films = $pdo->query("SELECT id, title FROM films ORDER BY title")->fetchAll(PDO::FETCH_ASSOC);
 
-$sessions = $pdo->query("
+$sql = "
     SELECT 
         sessions.id,
         sessions.session_date,
@@ -49,35 +52,71 @@ $sessions = $pdo->query("
         films.title
     FROM sessions
     JOIN films ON sessions.film_id = films.id
-    ORDER BY sessions.session_date, sessions.session_time
-")->fetchAll(PDO::FETCH_ASSOC);
+    WHERE 1=1
+";
+
+$params = [];
+
+if ($search !== '') {
+    $sql .= " AND films.title LIKE ?";
+    $params[] = '%' . $search . '%';
+}
+
+if ($dateFilter !== '') {
+    $sql .= " AND sessions.session_date = ?";
+    $params[] = $dateFilter;
+}
+
+$sql .= " ORDER BY sessions.session_date ASC, sessions.session_time ASC";
+
+$stmt = $pdo->prepare($sql);
+$stmt->execute($params);
+$sessions = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Сеансы</title>
     <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
 
-<header class="topbar">
-    <h1>Управление сеансами</h1>
-    <nav>
-        <a href="dashboard.php">Админ панель</a>
-        <a href="films.php">Фильмы</a>
-        <a href="bookings.php">Бронирования</a>
-        <a href="../index.php">На сайт</a>
-    </nav>
+<header class="site-header admin-header">
+    <div class="header-inner">
+        <a href="dashboard.php" class="brand">
+            <span class="brand-icon">🎬</span>
+            <span class="brand-text">Cinema Admin</span>
+        </a>
+
+        <nav class="main-nav">
+            <a href="dashboard.php">Главная</a>
+            <a href="films.php">Фильмы</a>
+            <a href="sessions.php">Сеансы</a>
+            <a href="bookings.php">Бронирования</a>
+            <a href="../index.php">На сайт</a>
+            <a href="../logout.php" class="nav-btn">Выйти</a>
+        </nav>
+    </div>
 </header>
 
-<main class="container">
+<main class="container page-top-spacing">
+
+    <section class="admin-hero">
+        <div class="admin-hero-box">
+            <div>
+                <h1>Управление сеансами</h1>
+                <p>Создавайте, редактируйте и находите сеансы по названию фильма и дате.</p>
+            </div>
+        </div>
+    </section>
 
     <?php if (!empty($message)): ?>
         <p class="message success"><?= htmlspecialchars($message) ?></p>
     <?php endif; ?>
 
-    <div class="card">
+    <section class="card">
         <div class="card-body">
             <h2>Добавить сеанс</h2>
 
@@ -100,38 +139,69 @@ $sessions = $pdo->query("
                 <button type="submit" class="btn">Добавить сеанс</button>
             </form>
         </div>
-    </div>
+    </section>
 
-    <div class="card">
+    <section class="card">
         <div class="card-body">
-            <h2>Расписание сеансов</h2>
+            <div class="admin-toolbar">
+                <div>
+                    <h2>Расписание сеансов</h2>
+                </div>
 
-            <table class="admin-table">
-                <tr>
-                    <th>ID</th>
-                    <th>Фильм</th>
-                    <th>Дата</th>
-                    <th>Время</th>
-                    <th>Зал</th>
-                    <th>Действия</th>
-                </tr>
+                <form method="GET" class="admin-search-form admin-filter-form">
+                    <input
+                        type="text"
+                        name="search"
+                        class="search-input"
+                        placeholder="Поиск по названию фильма..."
+                        value="<?= htmlspecialchars($search) ?>"
+                    >
 
-                <?php foreach ($sessions as $item): ?>
+                    <input
+                        type="date"
+                        name="session_date"
+                        class="search-input date-filter-input"
+                        value="<?= htmlspecialchars($dateFilter) ?>"
+                    >
+
+                    <button type="submit" class="btn search-btn">Применить</button>
+
+                    <?php if ($search !== '' || $dateFilter !== ''): ?>
+                        <a href="sessions.php" class="clear-search-btn">Сбросить</a>
+                    <?php endif; ?>
+                </form>
+            </div>
+
+            <?php if ($sessions): ?>
+                <table class="admin-table">
                     <tr>
-                        <td><?= $item['id'] ?></td>
-                        <td><?= htmlspecialchars($item['title']) ?></td>
-                        <td><?= htmlspecialchars($item['session_date']) ?></td>
-                        <td><?= htmlspecialchars($item['session_time']) ?></td>
-                        <td><?= htmlspecialchars($item['hall_name']) ?></td>
-                        <td>
-                            <a class="btn-edit" href="edit_session.php?id=<?= $item['id'] ?>">Редактировать</a>
-                            <a class="btn-delete" href="sessions.php?delete=<?= $item['id'] ?>" onclick="return confirm('Удалить сеанс?')">Удалить</a>
-                        </td>
+                        <th>ID</th>
+                        <th>Фильм</th>
+                        <th>Дата</th>
+                        <th>Время</th>
+                        <th>Зал</th>
+                        <th>Действия</th>
                     </tr>
-                <?php endforeach; ?>
-            </table>
+
+                    <?php foreach ($sessions as $item): ?>
+                        <tr>
+                            <td><?= $item['id'] ?></td>
+                            <td><?= htmlspecialchars($item['title']) ?></td>
+                            <td><?= htmlspecialchars($item['session_date']) ?></td>
+                            <td><?= htmlspecialchars($item['session_time']) ?></td>
+                            <td><?= htmlspecialchars($item['hall_name']) ?></td>
+                            <td>
+                                <a class="btn-edit" href="edit_session.php?id=<?= $item['id'] ?>">Редактировать</a>
+                                <a class="btn-delete" href="sessions.php?delete=<?= $item['id'] ?>" onclick="return confirm('Удалить сеанс?')">Удалить</a>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                </table>
+            <?php else: ?>
+                <p>Сеансы не найдены.</p>
+            <?php endif; ?>
         </div>
-    </div>
+    </section>
 
 </main>
 

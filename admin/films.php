@@ -38,34 +38,67 @@ if (isset($_GET['delete']) && is_numeric($_GET['delete'])) {
     exit;
 }
 
-$films = $pdo->query("SELECT * FROM films ORDER BY id DESC")->fetchAll(PDO::FETCH_ASSOC);
+$search = trim($_GET['search'] ?? '');
+
+$sql = "SELECT * FROM films";
+$params = [];
+
+if ($search !== '') {
+    $sql .= " WHERE title LIKE ? OR description LIKE ?";
+    $params[] = '%' . $search . '%';
+    $params[] = '%' . $search . '%';
+}
+
+$sql .= " ORDER BY id DESC";
+
+$stmt = $pdo->prepare($sql);
+$stmt->execute($params);
+$films = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Фильмы</title>
     <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
 
-<header class="topbar">
-    <h1>Управление фильмами</h1>
-    <nav>
-        <a href="dashboard.php">Админ панель</a>
-        <a href="sessions.php">Сеансы</a>
-        <a href="bookings.php">Бронирования</a>
-        <a href="../index.php">На сайт</a>
-    </nav>
+<header class="site-header admin-header">
+    <div class="header-inner">
+        <a href="dashboard.php" class="brand">
+            <span class="brand-icon">🎬</span>
+            <span class="brand-text">Cinema Admin</span>
+        </a>
+
+        <nav class="main-nav">
+            <a href="dashboard.php">Главная</a>
+            <a href="films.php">Фильмы</a>
+            <a href="sessions.php">Сеансы</a>
+            <a href="bookings.php">Бронирования</a>
+            <a href="../index.php">На сайт</a>
+            <a href="../logout.php" class="nav-btn">Выйти</a>
+        </nav>
+    </div>
 </header>
 
-<main class="container">
+<main class="container page-top-spacing">
+
+    <section class="admin-hero">
+        <div class="admin-hero-box">
+            <div>
+                <h1>Управление фильмами</h1>
+                <p>Добавляйте, редактируйте, удаляйте и ищите фильмы в системе.</p>
+            </div>
+        </div>
+    </section>
 
     <?php if (!empty($message)): ?>
         <p class="message success"><?= htmlspecialchars($message) ?></p>
     <?php endif; ?>
 
-    <div class="card">
+    <section class="card">
         <div class="card-body">
             <h2>Добавить фильм</h2>
 
@@ -81,36 +114,61 @@ $films = $pdo->query("SELECT * FROM films ORDER BY id DESC")->fetchAll(PDO::FETC
                 <button type="submit" class="btn">Добавить фильм</button>
             </form>
         </div>
-    </div>
+    </section>
 
-    <div class="card">
+    <section class="card">
         <div class="card-body">
-            <h2>Список фильмов</h2>
+            <div class="admin-toolbar">
+                <div>
+                    <h2>Список фильмов</h2>
+                </div>
 
-            <table class="admin-table">
-                <tr>
-                    <th>ID</th>
-                    <th>Название</th>
-                    <th>Длительность</th>
-                    <th>Цена</th>
-                    <th>Действия</th>
-                </tr>
+                <form method="GET" class="admin-search-form">
+                    <input
+                        type="text"
+                        name="search"
+                        class="search-input"
+                        placeholder="Поиск по названию или описанию..."
+                        value="<?= htmlspecialchars($search) ?>"
+                    >
+                    <button type="submit" class="btn search-btn">Найти</button>
 
-                <?php foreach ($films as $film): ?>
+                    <?php if ($search !== ''): ?>
+                        <a href="films.php" class="clear-search-btn">Сбросить</a>
+                    <?php endif; ?>
+                </form>
+            </div>
+
+            <?php if ($films): ?>
+                <table class="admin-table">
                     <tr>
-                        <td><?= $film['id'] ?></td>
-                        <td><?= htmlspecialchars($film['title']) ?></td>
-                        <td><?= htmlspecialchars($film['duration']) ?> мин</td>
-                        <td><?= htmlspecialchars($film['price']) ?> ₽</td>
-                        <td>
-                            <a class="btn-edit" href="edit_film.php?id=<?= $film['id'] ?>">Редактировать</a>
-                            <a class="btn-delete" href="films.php?delete=<?= $film['id'] ?>" onclick="return confirm('Удалить фильм?')">Удалить</a>
-                        </td>
+                        <th>ID</th>
+                        <th>Название</th>
+                        <th>Описание</th>
+                        <th>Длительность</th>
+                        <th>Цена</th>
+                        <th>Действия</th>
                     </tr>
-                <?php endforeach; ?>
-            </table>
+
+                    <?php foreach ($films as $film): ?>
+                        <tr>
+                            <td><?= $film['id'] ?></td>
+                            <td><?= htmlspecialchars($film['title']) ?></td>
+                            <td><?= htmlspecialchars($film['description']) ?></td>
+                            <td><?= htmlspecialchars($film['duration']) ?> мин</td>
+                            <td><?= htmlspecialchars($film['price']) ?> ₽</td>
+                            <td>
+                                <a class="btn-edit" href="edit_film.php?id=<?= $film['id'] ?>">Редактировать</a>
+                                <a class="btn-delete" href="films.php?delete=<?= $film['id'] ?>" onclick="return confirm('Удалить фильм?')">Удалить</a>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                </table>
+            <?php else: ?>
+                <p>Фильмы не найдены.</p>
+            <?php endif; ?>
         </div>
-    </div>
+    </section>
 
 </main>
 

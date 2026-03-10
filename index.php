@@ -2,7 +2,9 @@
 session_start();
 require __DIR__ . '/includes/db.php';
 
-$stmt = $pdo->query("
+$search = trim($_GET['search'] ?? '');
+
+$sql = "
     SELECT 
         sessions.id AS session_id,
         sessions.session_date,
@@ -14,9 +16,24 @@ $stmt = $pdo->query("
         films.price
     FROM sessions
     JOIN films ON sessions.film_id = films.id
-    ORDER BY sessions.session_date, sessions.session_time
-");
+    WHERE (
+        sessions.session_date > CURDATE()
+        OR (sessions.session_date = CURDATE() AND sessions.session_time >= CURTIME())
+    )
+";
 
+$params = [];
+
+if ($search !== '') {
+    $sql .= " AND (films.title LIKE ? OR films.description LIKE ?)";
+    $params[] = '%' . $search . '%';
+    $params[] = '%' . $search . '%';
+}
+
+$sql .= " ORDER BY sessions.session_date ASC, sessions.session_time ASC";
+
+$stmt = $pdo->prepare($sql);
+$stmt->execute($params);
 $sessions = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
@@ -29,36 +46,79 @@ $sessions = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </head>
 <body>
 
-<header class="topbar">
-    <h1>Cinema</h1>
+<header class="site-header">
+    <div class="header-inner">
+        <a href="index.php" class="brand">
+            <span class="brand-icon">🎬</span>
+            <span class="brand-text">Cinema</span>
+        </a>
 
-    <nav>
-        <?php if (isset($_SESSION['user_id'])): ?>
-            <span class="user-email">
-                <?= htmlspecialchars($_SESSION['user_email']) ?>
-            </span>
+        <nav class="main-nav">
+            <a href="index.php">Главная</a>
 
-            <a href="my_bookings.php">Мои бронирования</a>
-            <a href="logout.php">Выйти</a>
-        <?php else: ?>
-            <a href="login.php">Вход</a>
-            <a href="register.php">Регистрация</a>
-        <?php endif; ?>
+            <?php if (isset($_SESSION['user_id'])): ?>
+                <a href="my_bookings.php">Мои бронирования</a>
 
-        <?php if (isset($_SESSION['user_role']) && $_SESSION['user_role'] === 'admin'): ?>
-            <a href="admin/dashboard.php">Админ</a>
-        <?php endif; ?>
-    </nav>
+                <?php if (isset($_SESSION['user_role']) && $_SESSION['user_role'] === 'admin'): ?>
+                    <a href="admin/dashboard.php">Админка</a>
+                <?php endif; ?>
+
+                <span class="user-badge">
+                    <?= htmlspecialchars($_SESSION['user_email']) ?>
+                </span>
+
+                <a href="logout.php" class="nav-btn">Выйти</a>
+            <?php else: ?>
+                <a href="login.php">Вход</a>
+                <a href="register.php" class="nav-btn">Регистрация</a>
+            <?php endif; ?>
+        </nav>
+    </div>
 </header>
 
-<main class="container">
+<main class="container page-top-spacing">
 
-    <h2 class="section-title">Предстоящие сеансы</h2>
+    <section class="hero-banner">
+        <div class="hero-banner__content">
+            <h1>Бронирование билетов в кинотеатр</h1>
+            <p>
+                Выберите фильм, найдите удобный сеанс и забронируйте лучшие места в зале.
+            </p>
+        </div>
+    </section>
+
+    <section class="search-section">
+        <form method="GET" class="search-form">
+            <input
+                type="text"
+                name="search"
+                class="search-input"
+                placeholder="Поиск фильма по названию или описанию..."
+                value="<?= htmlspecialchars($search) ?>"
+            >
+            <button type="submit" class="btn search-btn">Найти</button>
+
+            <?php if ($search !== ''): ?>
+                <a href="index.php" class="clear-search-btn">Сбросить</a>
+            <?php endif; ?>
+        </form>
+    </section>
+
+    <section class="section-header">
+        <h2 class="section-title">Актуальные сеансы</h2>
+
+        <?php if ($search !== ''): ?>
+            <p class="search-result-text">
+                Результаты поиска по запросу:
+                <strong><?= htmlspecialchars($search) ?></strong>
+            </p>
+        <?php endif; ?>
+    </section>
 
     <div class="movie-grid">
         <?php if ($sessions): ?>
             <?php foreach ($sessions as $session): ?>
-                <div class="movie-card">
+                <article class="movie-card">
                     <div class="movie-header">
                         <h3><?= htmlspecialchars($session['title']) ?></h3>
                     </div>
@@ -69,11 +129,11 @@ $sessions = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         </p>
 
                         <div class="movie-info">
-                            <span>🎬 <?= htmlspecialchars($session['duration']) ?> мин</span>
-                            <span>📅 <?= htmlspecialchars($session['session_date']) ?></span>
-                            <span>⏰ <?= htmlspecialchars($session['session_time']) ?></span>
-                            <span>🏛 <?= htmlspecialchars($session['hall_name']) ?></span>
-                            <span>🎟 <?= htmlspecialchars($session['price']) ?> ₽</span>
+                            <span>🎬 Длительность: <?= htmlspecialchars($session['duration']) ?> мин</span>
+                            <span>📅 Дата: <?= htmlspecialchars($session['session_date']) ?></span>
+                            <span>⏰ Время: <?= htmlspecialchars($session['session_time']) ?></span>
+                            <span>🏛 Зал: <?= htmlspecialchars($session['hall_name']) ?></span>
+                            <span>🎟 Цена: <?= htmlspecialchars($session['price']) ?> ₽</span>
                         </div>
                     </div>
 
@@ -82,14 +142,18 @@ $sessions = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             Забронировать
                         </a>
                     </div>
-                </div>
+                </article>
             <?php endforeach; ?>
         <?php else: ?>
-            <div class="card">
-                <div class="card-body">
-                    <h3>Сеансов пока нет</h3>
-                    <p>Добавьте фильмы и сеансы через админ-панель.</p>
-                </div>
+            <div class="empty-state">
+                <h3>Сеансы не найдены</h3>
+                <p>
+                    <?php if ($search !== ''): ?>
+                        По вашему запросу ничего не найдено. Попробуйте изменить текст поиска.
+                    <?php else: ?>
+                        В системе пока нет доступных будущих сеансов.
+                    <?php endif; ?>
+                </p>
             </div>
         <?php endif; ?>
     </div>
