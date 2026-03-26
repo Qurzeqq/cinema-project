@@ -1,0 +1,255 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36 Edg/146.0.0.0" version="29.6.1" pages="2">
+  <diagram id="cinema-idef0-context" name="A-0 Context">
+    <mxGraphModel dx="1216" dy="664" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="bg" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=light-dark(#F8F6F1,#FFFFFF);strokeColor=none;" value="" vertex="1">
+          <mxGeometry height="1000" width="1600" as="geometry" />
+        </mxCell>
+        <mxCell id="title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontStyle=1;fontSize=24;fontColor=#3b342d;" value="IDEF0: контекстная диаграмма системы Cinema" vertex="1">
+          <mxGeometry height="36" width="940" x="330" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="subtitle" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=14;fontColor=#6a6158;" value="Модель построена по фактическому поведению пользовательских и административных PHP-страниц проекта" vertex="1">
+          <mxGeometry height="24" width="1080" x="260" y="56" as="geometry" />
+        </mxCell>
+        <mxCell id="context" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#8d6b00;strokeWidth=2;fontStyle=1;fontSize=19;spacing=14;align=center;verticalAlign=middle;" value="A-0&#xa;Управлять системой бронирования&#xa;билетов кинотеатра&#xa;&#xa;Пользовательский и административный контур&#xa;с хранением данных в MySQL" vertex="1">
+          <mxGeometry height="260" width="560" x="520" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="note_ctx" parent="1" style="shape=note;whiteSpace=wrap;html=1;fillColor=#fffaf2;strokeColor=#b7a57a;fontSize=13;spacing=8;" value="Основано на файлах:&#xa;index.php, booking.php, login.php, register.php, logout.php, my_bookings.php, admin/dashboard.php, admin/films.php, admin/edit_film.php, admin/sessions.php, admin/edit_session.php, admin/bookings.php, includes/db.php&#xa;&#xa;Таблицы БД, используемые кодом: clients, films, sessions, booking" vertex="1">
+          <mxGeometry height="180" width="340" x="1180" y="730" as="geometry" />
+        </mxCell>
+        <mxCell id="i1" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;strokeWidth=2;strokeColor=#3d6fb4;fontSize=13;labelBackgroundColor=#f8f6f1;" target="context" value="Запрос поиска&#xa;и выбор сеанса">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="80" y="355" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="i2" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;strokeWidth=2;strokeColor=#3d6fb4;fontSize=13;labelBackgroundColor=#f8f6f1;" target="context" value="Данные регистрации,&#xa;входа и выхода">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="80" y="430" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="i3" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;strokeWidth=2;strokeColor=#3d6fb4;fontSize=13;labelBackgroundColor=#f8f6f1;" target="context" value="Команды администратора&#xa;по управлению системой">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="80" y="505" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c1" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;strokeWidth=2;strokeColor=#c28a00;fontSize=13;labelBackgroundColor=#f8f6f1;" target="context" value="Роли доступа&#xa;и права admin">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="550" y="110" />
+              <mxPoint x="550" y="210" />
+              <mxPoint x="800" y="210" />
+            </Array>
+            <mxPoint x="660" y="110" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c2" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;strokeWidth=2;strokeColor=#c28a00;fontSize=13;labelBackgroundColor=#f8f6f1;" target="context" value="Правила валидации&#xa;форм и авторизации">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="800" y="110" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c3" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;strokeWidth=2;strokeColor=#c28a00;fontSize=13;labelBackgroundColor=#f8f6f1;" target="context" value="Правила бронирования,&#xa;занятость мест, дата и время">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1140" y="110" />
+              <mxPoint x="1140" y="206" />
+              <mxPoint x="800" y="206" />
+            </Array>
+            <mxPoint x="980" y="110" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="o1" edge="1" parent="1" source="context" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;strokeWidth=2;strokeColor=#4d8f4c;fontSize=13;labelBackgroundColor=#f8f6f1;" value="Список доступных сеансов&#xa;и схема зала">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1510" y="355" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="o2" edge="1" parent="1" source="context" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;strokeWidth=2;strokeColor=#4d8f4c;fontSize=13;labelBackgroundColor=#f8f6f1;" value="Созданные или&#xa;отмененные бронирования">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1510" y="435" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="o3" edge="1" parent="1" source="context" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;strokeWidth=2;strokeColor=#4d8f4c;fontSize=13;labelBackgroundColor=#f8f6f1;" value="Актуальные фильмы,&#xa;сеансы, статистика и списки">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1510" y="515" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m1" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;strokeWidth=2;strokeColor=#7a5ea8;fontSize=13;labelBackgroundColor=#f8f6f1;" target="context" value="PHP-страницы и формы">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="590" y="920" />
+              <mxPoint x="590" y="740" />
+              <mxPoint x="800" y="740" />
+            </Array>
+            <mxPoint x="650" y="920" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m2" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;strokeWidth=2;strokeColor=#7a5ea8;fontSize=13;labelBackgroundColor=#f8f6f1;" target="context" value="Сессии PHP">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="805" y="920" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m3" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;strokeWidth=2;strokeColor=#7a5ea8;fontSize=13;labelBackgroundColor=#f8f6f1;" target="context" value="PDO + MySQL&#xa;(clients, films, sessions, booking)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1090" y="920" />
+              <mxPoint x="1090" y="740" />
+              <mxPoint x="800" y="740" />
+            </Array>
+            <mxPoint x="1000" y="920" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="cinema-idef0-decomposition" name="A0 Decomposition">
+    <mxGraphModel dx="1600" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1200" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="bg2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8f6f1;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="1600" height="1200" as="geometry" />
+        </mxCell>
+        <mxCell id="title2" value="IDEF0: декомпозиция основных функций проекта" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontStyle=1;fontSize=24;fontColor=#3b342d;" vertex="1" parent="1">
+          <mxGeometry x="320" y="18" width="960" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="subtitle2" value="A0 отображает, как пользовательские сценарии и админ-панель распределены по основным функциональным блокам" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=14;fontColor=#6a6158;" vertex="1" parent="1">
+          <mxGeometry x="250" y="54" width="1100" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="note2" value="Источник модели: index.php, booking.php, login.php, register.php, logout.php, my_bookings.php, admin/*.php&#xa;&#xa;Общая инфраструктура для всех блоков: includes/config.php, includes/db.php, PDO, таблицы clients / films / sessions / booking" style="shape=note;whiteSpace=wrap;html=1;fillColor=#fffaf2;strokeColor=#b7a57a;fontSize=13;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="1180" y="90" width="330" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="a1" value="A1&#xa;Управлять учетными записями&#xa;и доступом" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#8d6b00;strokeWidth=2;fontStyle=1;fontSize=18;spacing=12;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="100" y="260" width="260" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="a2" value="A2&#xa;Вести каталог фильмов&#xa;и расписание сеансов" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#8d6b00;strokeWidth=2;fontStyle=1;fontSize=18;spacing=12;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="420" y="260" width="300" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="a3" value="A3&#xa;Публиковать и подбирать&#xa;доступные сеансы" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#8d6b00;strokeWidth=2;fontStyle=1;fontSize=18;spacing=12;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="790" y="260" width="300" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="a4" value="A4&#xa;Обрабатывать бронирование&#xa;и отмену мест" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#8d6b00;strokeWidth=2;fontStyle=1;fontSize=18;spacing=12;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="310" y="530" width="360" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="a5" value="A5&#xa;Контролировать статистику&#xa;и список бронирований" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#8d6b00;strokeWidth=2;fontStyle=1;fontSize=18;spacing=12;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="790" y="530" width="300" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="di1" value="Email, пароль,&#xa;подтверждение" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;strokeWidth=2;strokeColor=#3d6fb4;fontSize=13;labelBackgroundColor=#f8f6f1;" edge="1" parent="1" target="a1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="30" y="300" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="di2" value="CRUD-команды&#xa;администратора" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;strokeWidth=2;strokeColor=#3d6fb4;fontSize=13;labelBackgroundColor=#f8f6f1;" edge="1" parent="1" target="a2">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="30" y="350" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="di3" value="Поисковый запрос" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;strokeWidth=2;strokeColor=#3d6fb4;fontSize=13;labelBackgroundColor=#f8f6f1;" edge="1" parent="1" target="a3">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="30" y="440" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="di4" value="Выбор сеанса, мест&#xa;и отмена брони" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;strokeWidth=2;strokeColor=#3d6fb4;fontSize=13;labelBackgroundColor=#f8f6f1;" edge="1" parent="1" target="a4">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="30" y="585" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dc1" value="Валидация email, hash&#xa;и роль пользователя" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;strokeWidth=2;strokeColor=#c28a00;fontSize=13;labelBackgroundColor=#f8f6f1;" edge="1" parent="1" target="a1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="180" y="115" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dc2" value="Права admin" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;strokeWidth=2;strokeColor=#c28a00;fontSize=13;labelBackgroundColor=#f8f6f1;" edge="1" parent="1" target="a2">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="570" y="115" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dc3" value="Показывать только&#xa;актуальные сеансы" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;strokeWidth=2;strokeColor=#c28a00;fontSize=13;labelBackgroundColor=#f8f6f1;" edge="1" parent="1" target="a3">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="960" y="115" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dc4" value="Проверка занятости мест,&#xa;транзакция и сообщения" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;strokeWidth=2;strokeColor=#c28a00;fontSize=13;labelBackgroundColor=#f8f6f1;" edge="1" parent="1" target="a4">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="450" y="115" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dc5" value="Права admin и правила&#xa;просмотра статистики" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;strokeWidth=2;strokeColor=#c28a00;fontSize=13;labelBackgroundColor=#f8f6f1;" edge="1" parent="1" target="a5">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1030" y="115" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="do1" value="Подборка доступных&#xa;сеансов" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;strokeWidth=2;strokeColor=#4d8f4c;fontSize=13;labelBackgroundColor=#f8f6f1;" edge="1" parent="1" source="a3">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1540" y="320" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="do2" value="Активные или&#xa;отмененные бронирования" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;strokeWidth=2;strokeColor=#4d8f4c;fontSize=13;labelBackgroundColor=#f8f6f1;" edge="1" parent="1" source="a4">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="690" y="715" />
+              <mxPoint x="1250" y="715" />
+            </Array>
+            <mxPoint x="1540" y="715" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="do3" value="Сводка и список&#xa;броней" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;strokeWidth=2;strokeColor=#4d8f4c;fontSize=13;labelBackgroundColor=#f8f6f1;" edge="1" parent="1" source="a5">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1540" y="595" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f1" value="Авторизованный&#xa;клиент" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;strokeWidth=2;strokeColor=#8a5a44;fontSize=13;labelBackgroundColor=#f8f6f1;" edge="1" parent="1" source="a1" target="a4">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="230" y="455" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f2" value="Фильмы и&#xa;расписание" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;strokeWidth=2;strokeColor=#8a5a44;fontSize=13;labelBackgroundColor=#f8f6f1;" edge="1" parent="1" source="a2" target="a3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f3" value="Выбранный сеанс&#xa;и схема мест" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;strokeWidth=2;strokeColor=#8a5a44;fontSize=13;labelBackgroundColor=#f8f6f1;" edge="1" parent="1" source="a3" target="a4">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="940" y="430" />
+              <mxPoint x="490" y="430" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f4" value="Записи бронирований" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;strokeWidth=2;strokeColor=#8a5a44;fontSize=13;labelBackgroundColor=#f8f6f1;" edge="1" parent="1" source="a4" target="a5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ma1" value="login.php&#xa;register.php&#xa;logout.php" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e5f4e3;strokeColor=#7aa06f;arcSize=10;fontSize=13;spacing=8;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="110" y="790" width="240" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="ma2" value="admin/films.php&#xa;admin/edit_film.php&#xa;admin/sessions.php&#xa;admin/edit_session.php" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e5f4e3;strokeColor=#7aa06f;arcSize=10;fontSize=13;spacing=8;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="430" y="780" width="280" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="ma3" value="index.php" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e5f4e3;strokeColor=#7aa06f;arcSize=10;fontSize=13;spacing=8;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="835" y="790" width="210" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="ma4" value="booking.php&#xa;my_bookings.php" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e5f4e3;strokeColor=#7aa06f;arcSize=10;fontSize=13;spacing=8;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="370" y="940" width="240" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="ma5" value="admin/dashboard.php&#xa;admin/bookings.php" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e5f4e3;strokeColor=#7aa06f;arcSize=10;fontSize=13;spacing=8;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="820" y="940" width="240" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="me1" value="Механизм" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;strokeWidth=2;strokeColor=#7a5ea8;fontSize=12;labelBackgroundColor=#f8f6f1;" edge="1" parent="1" source="ma1" target="a1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="me2" value="Механизм" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;strokeWidth=2;strokeColor=#7a5ea8;fontSize=12;labelBackgroundColor=#f8f6f1;" edge="1" parent="1" source="ma2" target="a2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="me3" value="Механизм" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;strokeWidth=2;strokeColor=#7a5ea8;fontSize=12;labelBackgroundColor=#f8f6f1;" edge="1" parent="1" source="ma3" target="a3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="me4" value="Механизм" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;strokeWidth=2;strokeColor=#7a5ea8;fontSize=12;labelBackgroundColor=#f8f6f1;" edge="1" parent="1" source="ma4" target="a4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="me5" value="Механизм" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;strokeWidth=2;strokeColor=#7a5ea8;fontSize=12;labelBackgroundColor=#f8f6f1;" edge="1" parent="1" source="ma5" target="a5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

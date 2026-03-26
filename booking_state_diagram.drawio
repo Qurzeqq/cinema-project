@@ -1,0 +1,94 @@
+<mxfile host="app.diagrams.net" modified="2026-03-11T12:30:00.000Z" agent="Codex" version="24.7.17">
+  <diagram id="booking-state" name="Booking State">
+    <mxGraphModel dx="1420" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="bg" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#efefef;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="1400" height="900" as="geometry"/>
+        </mxCell>
+        <mxCell id="start" value="" style="ellipse;html=1;aspect=fixed;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="675" y="40" width="24" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="state_wait" value="&lt;div style='text-align:center;'&gt;&lt;b&gt;Ожидание выбора мест&lt;/b&gt;&lt;/div&gt;&lt;hr size='1'/&gt;&lt;div style='text-align:left;'&gt;do/ отображение схемы зала и занятых мест&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;fillColor=#fff2cc;strokeColor=#d47b9a;fontSize=13;fontColor=#333333;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="530" y="95" width="310" height="92" as="geometry"/>
+        </mxCell>
+        <mxCell id="state_request" value="&lt;div style='text-align:center;'&gt;&lt;b&gt;Проверка данных запроса&lt;/b&gt;&lt;/div&gt;&lt;hr size='1'/&gt;&lt;div style='text-align:left;'&gt;entry/ получение POST-запроса&lt;br&gt;do/ проверка session_id и массива seats[]&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;fillColor=#fff2cc;strokeColor=#d47b9a;fontSize=13;fontColor=#333333;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="500" y="240" width="370" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="state_auth" value="&lt;div style='text-align:center;'&gt;&lt;b&gt;Проверка авторизации&lt;/b&gt;&lt;/div&gt;&lt;hr size='1'/&gt;&lt;div style='text-align:left;'&gt;do/ проверка session-пользователя&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;fillColor=#fff2cc;strokeColor=#d47b9a;fontSize=13;fontColor=#333333;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="540" y="405" width="290" height="88" as="geometry"/>
+        </mxCell>
+        <mxCell id="state_check" value="&lt;div style='text-align:center;'&gt;&lt;b&gt;Проверка доступности мест&lt;/b&gt;&lt;/div&gt;&lt;hr size='1'/&gt;&lt;div style='text-align:left;'&gt;entry/ beginTransaction()&lt;br&gt;do/ SELECT COUNT(*) по каждому месту&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;fillColor=#fff2cc;strokeColor=#d47b9a;fontSize=13;fontColor=#333333;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="490" y="545" width="390" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="state_create" value="&lt;div style='text-align:center;'&gt;&lt;b&gt;Создание бронирования&lt;/b&gt;&lt;/div&gt;&lt;hr size='1'/&gt;&lt;div style='text-align:left;'&gt;do/ INSERT INTO booking&lt;br&gt;exit/ COMMIT транзакции&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;fillColor=#fff2cc;strokeColor=#d47b9a;fontSize=13;fontColor=#333333;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="545" y="710" width="280" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="state_active" value="&lt;div style='text-align:center;'&gt;&lt;b&gt;Бронирование активно&lt;/b&gt;&lt;/div&gt;&lt;hr size='1'/&gt;&lt;div style='text-align:left;'&gt;do/ отображение в my_bookings.php и admin/bookings.php&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;fillColor=#fff2cc;strokeColor=#d47b9a;fontSize=13;fontColor=#333333;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="930" y="710" width="320" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="state_cancel" value="&lt;div style='text-align:center;'&gt;&lt;b&gt;Отмена бронирования&lt;/b&gt;&lt;/div&gt;&lt;hr size='1'/&gt;&lt;div style='text-align:left;'&gt;entry/ DELETE FROM booking&lt;br&gt;exit/ redirect на my_bookings.php&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;fillColor=#fff2cc;strokeColor=#d47b9a;fontSize=13;fontColor=#333333;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="950" y="535" width="280" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="note" value="&lt;b&gt;Основано на коде:&lt;/b&gt;&lt;br&gt;booking.php&lt;br&gt;my_bookings.php" style="shape=note;whiteSpace=wrap;html=1;fillColor=#f8f8f8;strokeColor=#d47b9a;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1030" y="105" width="180" height="88" as="geometry"/>
+        </mxCell>
+        <mxCell id="end_outer" value="" style="ellipse;html=1;aspect=fixed;fillColor=#ffffff;strokeColor=#000000;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="1308" y="570" width="28" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="end_inner" value="" style="ellipse;html=1;aspect=fixed;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="1314" y="576" width="16" height="16" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1" value="открыта booking.php?session_id=..." style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#c27ba0;fontSize=12;endArrow=classic;endFill=1;" edge="1" parent="1" source="start" target="state_wait">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" value="нажата кнопка &quot;Подтвердить бронирование&quot;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#c27ba0;fontSize=12;endArrow=classic;endFill=1;" edge="1" parent="1" source="state_wait" target="state_request">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e3" value="[session_id некорректен или места не выбраны] / сообщение" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#c27ba0;fontSize=12;endArrow=classic;endFill=1;" edge="1" parent="1" source="state_request" target="state_wait">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="340" y="295"/>
+              <mxPoint x="340" y="140"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e4" value="[данные формы корректны]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#c27ba0;fontSize=12;endArrow=classic;endFill=1;" edge="1" parent="1" source="state_request" target="state_auth">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e5" value="[пользователь не авторизован] / сообщение" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#c27ba0;fontSize=12;endArrow=classic;endFill=1;" edge="1" parent="1" source="state_auth" target="state_wait">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="290" y="448"/>
+              <mxPoint x="290" y="140"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e6" value="[пользователь авторизован]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#c27ba0;fontSize=12;endArrow=classic;endFill=1;" edge="1" parent="1" source="state_auth" target="state_check">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e7" value="[место уже занято] / rollback + сообщение" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#c27ba0;fontSize=12;endArrow=classic;endFill=1;" edge="1" parent="1" source="state_check" target="state_wait">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="240" y="600"/>
+              <mxPoint x="240" y="140"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e8" value="[все места свободны]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#c27ba0;fontSize=12;endArrow=classic;endFill=1;" edge="1" parent="1" source="state_check" target="state_create">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e9" value="INSERT выполнен / COMMIT" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#c27ba0;fontSize=12;endArrow=classic;endFill=1;" edge="1" parent="1" source="state_create" target="state_active">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e10" value="нажата &quot;Отменить&quot;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#c27ba0;fontSize=12;endArrow=classic;endFill=1;" edge="1" parent="1" source="state_active" target="state_cancel">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e11" value="запись удалена" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#c27ba0;fontSize=12;endArrow=classic;endFill=1;" edge="1" parent="1" source="state_cancel" target="end_outer">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,253 @@
+<mxfile host="app.diagrams.net" modified="2026-03-12T21:15:00.000Z" agent="Codex" version="24.7.17">
+  <diagram id="booking-activity-compact" name="Booking Activity">
+    <mxGraphModel dx="1600" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="1600" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="bg" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f6f3ee;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="1400" height="1600" as="geometry"/>
+        </mxCell>
+        <mxCell id="lane_user" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#edf5ff;strokeColor=#c8d8ec;arcSize=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="60" width="340" height="1480" as="geometry"/>
+        </mxCell>
+        <mxCell id="lane_app" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f2f8ef;strokeColor=#cadacf;arcSize=12;" vertex="1" parent="1">
+          <mxGeometry x="410" y="60" width="560" height="1480" as="geometry"/>
+        </mxCell>
+        <mxCell id="lane_db" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f0fa;strokeColor=#d8cde3;arcSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1000" y="60" width="320" height="1480" as="geometry"/>
+        </mxCell>
+        <mxCell id="head_user" value="Пользователь" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d9e8fb;strokeColor=#6c8ebf;arcSize=16;fontStyle=1;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="55" y="75" width="310" height="42" as="geometry"/>
+        </mxCell>
+        <mxCell id="head_app" value="Веб-приложение" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d8ead6;strokeColor=#82b366;arcSize=16;fontStyle=1;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="425" y="75" width="530" height="42" as="geometry"/>
+        </mxCell>
+        <mxCell id="head_db" value="База данных" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e6dbf0;strokeColor=#9673a6;arcSize=16;fontStyle=1;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="1015" y="75" width="290" height="42" as="geometry"/>
+        </mxCell>
+        <mxCell id="title" value="Диаграмма деятельности: бронирование билета" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontStyle=1;fontSize=20;fontColor=#3b342d;" vertex="1" parent="1">
+          <mxGeometry x="430" y="18" width="500" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="start" value="" style="ellipse;html=1;aspect=fixed;fillColor=#2d2d2d;strokeColor=#2d2d2d;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="198" y="150" width="24" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="u_open_main" value="Открыть главную страницу" style="rounded=1;whiteSpace=wrap;html=1;arcSize=18;fillColor=#eaf3ff;gradientColor=#dcecff;strokeColor=#6b8fc9;shadow=1;fontSize=13;fontColor=#24374d;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="75" y="200" width="270" height="54" as="geometry"/>
+        </mxCell>
+        <mxCell id="a_load_sessions" value="Загрузить сеансы" style="rounded=1;whiteSpace=wrap;html=1;arcSize=18;fillColor=#eef7ed;gradientColor=#dfefdd;strokeColor=#7aa06f;shadow=1;fontSize=13;fontColor=#2d4a2d;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="510" y="200" width="280" height="54" as="geometry"/>
+        </mxCell>
+        <mxCell id="d_select_sessions" value="SELECT sessions + films" style="rounded=1;whiteSpace=wrap;html=1;arcSize=18;fillColor=#f5eefc;gradientColor=#e8dcf7;strokeColor=#9375b2;shadow=1;fontSize=13;fontColor=#3f3152;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="1035" y="200" width="250" height="54" as="geometry"/>
+        </mxCell>
+        <mxCell id="a_show_sessions" value="Показать список сеансов" style="rounded=1;whiteSpace=wrap;html=1;arcSize=18;fillColor=#eef7ed;gradientColor=#dfefdd;strokeColor=#7aa06f;shadow=1;fontSize=13;fontColor=#2d4a2d;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="515" y="280" width="270" height="54" as="geometry"/>
+        </mxCell>
+        <mxCell id="u_choose_session" value="Выбрать сеанс" style="rounded=1;whiteSpace=wrap;html=1;arcSize=18;fillColor=#eaf3ff;gradientColor=#dcecff;strokeColor=#6b8fc9;shadow=1;fontSize=13;fontColor=#24374d;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="75" y="280" width="270" height="54" as="geometry"/>
+        </mxCell>
+        <mxCell id="a_load_hall" value="Загрузить данные сеанса" style="rounded=1;whiteSpace=wrap;html=1;arcSize=18;fillColor=#eef7ed;gradientColor=#dfefdd;strokeColor=#7aa06f;shadow=1;fontSize=13;fontColor=#2d4a2d;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="500" y="360" width="300" height="54" as="geometry"/>
+        </mxCell>
+        <mxCell id="d_select_hall" value="SELECT session&#xa;и занятые места" style="rounded=1;whiteSpace=wrap;html=1;arcSize=18;fillColor=#f5eefc;gradientColor=#e8dcf7;strokeColor=#9375b2;shadow=1;fontSize=13;fontColor=#3f3152;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="1035" y="352" width="250" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="a_show_hall" value="Показать схему зала" style="rounded=1;whiteSpace=wrap;html=1;arcSize=18;fillColor=#eef7ed;gradientColor=#dfefdd;strokeColor=#7aa06f;shadow=1;fontSize=13;fontColor=#2d4a2d;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="515" y="440" width="270" height="54" as="geometry"/>
+        </mxCell>
+        <mxCell id="u_select_seats" value="Выбрать места и отправить форму" style="rounded=1;whiteSpace=wrap;html=1;arcSize=18;fillColor=#eaf3ff;gradientColor=#dcecff;strokeColor=#6b8fc9;shadow=1;fontSize=13;fontColor=#24374d;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="60" y="440" width="300" height="54" as="geometry"/>
+        </mxCell>
+        <mxCell id="dec_auth" value="Авторизован?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff0bf;gradientColor=#ffe199;strokeColor=#ccaa46;shadow=1;fontStyle=1;fontSize=13;fontColor=#5a4720;" vertex="1" parent="1">
+          <mxGeometry x="620" y="535" width="120" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="a_need_login" value="Сообщение:&#xa;нужно войти" style="rounded=1;whiteSpace=wrap;html=1;arcSize=16;fillColor=#fdecec;gradientColor=#f7dcdc;strokeColor=#cc7f7f;shadow=1;fontSize=13;fontColor=#5a2d2d;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="780" y="548" width="170" height="62" as="geometry"/>
+        </mxCell>
+        <mxCell id="u_login" value="Вход / регистрация" style="rounded=1;whiteSpace=wrap;html=1;arcSize=18;fillColor=#eaf3ff;gradientColor=#dcecff;strokeColor=#6b8fc9;shadow=1;fontSize=13;fontColor=#24374d;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="75" y="650" width="270" height="54" as="geometry"/>
+        </mxCell>
+        <mxCell id="a_auth" value="Проверить или создать аккаунт" style="rounded=1;whiteSpace=wrap;html=1;arcSize=18;fillColor=#eef7ed;gradientColor=#dfefdd;strokeColor=#7aa06f;shadow=1;fontSize=13;fontColor=#2d4a2d;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="500" y="650" width="300" height="54" as="geometry"/>
+        </mxCell>
+        <mxCell id="d_auth" value="SELECT / INSERT clients" style="rounded=1;whiteSpace=wrap;html=1;arcSize=18;fillColor=#f5eefc;gradientColor=#e8dcf7;strokeColor=#9375b2;shadow=1;fontSize=13;fontColor=#3f3152;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="1035" y="650" width="250" height="54" as="geometry"/>
+        </mxCell>
+        <mxCell id="dec_seats" value="Места выбраны?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff0bf;gradientColor=#ffe199;strokeColor=#ccaa46;shadow=1;fontStyle=1;fontSize=13;fontColor=#5a4720;" vertex="1" parent="1">
+          <mxGeometry x="620" y="650" width="120" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="a_need_seats" value="Сообщение:&#xa;выберите место" style="rounded=1;whiteSpace=wrap;html=1;arcSize=16;fillColor=#fdecec;gradientColor=#f7dcdc;strokeColor=#cc7f7f;shadow=1;fontSize=13;fontColor=#5a2d2d;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="780" y="663" width="170" height="62" as="geometry"/>
+        </mxCell>
+        <mxCell id="a_begin_tx" value="Начать транзакцию" style="rounded=1;whiteSpace=wrap;html=1;arcSize=18;fillColor=#eef7ed;gradientColor=#dfefdd;strokeColor=#7aa06f;shadow=1;fontSize=13;fontColor=#2d4a2d;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="515" y="790" width="270" height="54" as="geometry"/>
+        </mxCell>
+        <mxCell id="d_check_seats" value="Проверить места&#xa;в booking" style="rounded=1;whiteSpace=wrap;html=1;arcSize=18;fillColor=#f5eefc;gradientColor=#e8dcf7;strokeColor=#9375b2;shadow=1;fontSize=13;fontColor=#3f3152;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="1035" y="782" width="250" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="dec_free" value="Все места&#xa;свободны?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff0bf;gradientColor=#ffe199;strokeColor=#ccaa46;shadow=1;fontStyle=1;fontSize=13;fontColor=#5a4720;" vertex="1" parent="1">
+          <mxGeometry x="620" y="900" width="120" height="94" as="geometry"/>
+        </mxCell>
+        <mxCell id="a_rollback" value="ROLLBACK и ошибка" style="rounded=1;whiteSpace=wrap;html=1;arcSize=16;fillColor=#fdecec;gradientColor=#f7dcdc;strokeColor=#cc7f7f;shadow=1;fontSize=13;fontColor=#5a2d2d;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="780" y="915" width="170" height="62" as="geometry"/>
+        </mxCell>
+        <mxCell id="d_insert" value="INSERT INTO booking" style="rounded=1;whiteSpace=wrap;html=1;arcSize=18;fillColor=#f5eefc;gradientColor=#e8dcf7;strokeColor=#9375b2;shadow=1;fontSize=13;fontColor=#3f3152;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="1035" y="919" width="250" height="54" as="geometry"/>
+        </mxCell>
+        <mxCell id="a_success" value="COMMIT и сообщение об успехе" style="rounded=1;whiteSpace=wrap;html=1;arcSize=18;fillColor=#eef7ed;gradientColor=#dfefdd;strokeColor=#7aa06f;shadow=1;fontSize=13;fontColor=#2d4a2d;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="500" y="1035" width="300" height="54" as="geometry"/>
+        </mxCell>
+        <mxCell id="u_open_my" value="Открыть &quot;Мои бронирования&quot;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=18;fillColor=#eaf3ff;gradientColor=#dcecff;strokeColor=#6b8fc9;shadow=1;fontSize=13;fontColor=#24374d;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="60" y="1035" width="300" height="54" as="geometry"/>
+        </mxCell>
+        <mxCell id="a_load_bookings" value="Загрузить брони пользователя" style="rounded=1;whiteSpace=wrap;html=1;arcSize=18;fillColor=#eef7ed;gradientColor=#dfefdd;strokeColor=#7aa06f;shadow=1;fontSize=13;fontColor=#2d4a2d;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="510" y="1135" width="280" height="54" as="geometry"/>
+        </mxCell>
+        <mxCell id="d_select_bookings" value="SELECT booking&#xa;пользователя" style="rounded=1;whiteSpace=wrap;html=1;arcSize=18;fillColor=#f5eefc;gradientColor=#e8dcf7;strokeColor=#9375b2;shadow=1;fontSize=13;fontColor=#3f3152;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="1035" y="1127" width="250" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="a_show_bookings" value="Показать список броней" style="rounded=1;whiteSpace=wrap;html=1;arcSize=18;fillColor=#eef7ed;gradientColor=#dfefdd;strokeColor=#7aa06f;shadow=1;fontSize=13;fontColor=#2d4a2d;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="515" y="1215" width="270" height="54" as="geometry"/>
+        </mxCell>
+        <mxCell id="dec_cancel" value="Отменить&#xa;бронь?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff0bf;gradientColor=#ffe199;strokeColor=#ccaa46;shadow=1;fontStyle=1;fontSize=13;fontColor=#5a4720;" vertex="1" parent="1">
+          <mxGeometry x="150" y="1210" width="120" height="94" as="geometry"/>
+        </mxCell>
+        <mxCell id="a_delete" value="Удалить бронь&#xa;и обновить список" style="rounded=1;whiteSpace=wrap;html=1;arcSize=18;fillColor=#eef7ed;gradientColor=#dfefdd;strokeColor=#7aa06f;shadow=1;fontSize=13;fontColor=#2d4a2d;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="500" y="1320" width="300" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="d_delete" value="DELETE FROM booking" style="rounded=1;whiteSpace=wrap;html=1;arcSize=18;fillColor=#f5eefc;gradientColor=#e8dcf7;strokeColor=#9375b2;shadow=1;fontSize=13;fontColor=#3f3152;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="1035" y="1328" width="250" height="54" as="geometry"/>
+        </mxCell>
+        <mxCell id="a_refresh" value="Обновить my_bookings.php" style="rounded=1;whiteSpace=wrap;html=1;arcSize=18;fillColor=#eef7ed;gradientColor=#dfefdd;strokeColor=#7aa06f;shadow=1;fontSize=13;fontColor=#2d4a2d;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="515" y="1425" width="270" height="54" as="geometry"/>
+        </mxCell>
+        <mxCell id="end_outer" value="" style="ellipse;html=1;aspect=fixed;fillColor=#ffffff;strokeColor=#2d2d2d;strokeWidth=2;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="636" y="1495" width="28" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="end_inner" value="" style="ellipse;html=1;aspect=fixed;fillColor=#2d2d2d;strokeColor=#2d2d2d;" vertex="1" parent="1">
+          <mxGeometry x="642" y="1501" width="16" height="16" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7c776f;endArrow=classic;endFill=1;" edge="1" parent="1" source="start" target="u_open_main">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7c776f;endArrow=classic;endFill=1;" edge="1" parent="1" source="u_open_main" target="a_load_sessions">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7c776f;endArrow=classic;endFill=1;" edge="1" parent="1" source="a_load_sessions" target="d_select_sessions">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7c776f;endArrow=classic;endFill=1;" edge="1" parent="1" source="d_select_sessions" target="a_show_sessions">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7c776f;endArrow=classic;endFill=1;" edge="1" parent="1" source="a_show_sessions" target="u_choose_session">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7c776f;endArrow=classic;endFill=1;" edge="1" parent="1" source="u_choose_session" target="a_load_hall">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7c776f;endArrow=classic;endFill=1;" edge="1" parent="1" source="a_load_hall" target="d_select_hall">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e8" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7c776f;endArrow=classic;endFill=1;" edge="1" parent="1" source="d_select_hall" target="a_show_hall">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e9" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7c776f;endArrow=classic;endFill=1;" edge="1" parent="1" source="a_show_hall" target="u_select_seats">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e10" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7c776f;endArrow=classic;endFill=1;" edge="1" parent="1" source="u_select_seats" target="dec_auth">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e11" value="[нет]" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7c776f;endArrow=classic;endFill=1;fontSize=12;" edge="1" parent="1" source="dec_auth" target="a_need_login">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e12" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7c776f;endArrow=classic;endFill=1;" edge="1" parent="1" source="a_need_login" target="u_login">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e13" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7c776f;endArrow=classic;endFill=1;" edge="1" parent="1" source="u_login" target="a_auth">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e14" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7c776f;endArrow=classic;endFill=1;" edge="1" parent="1" source="a_auth" target="d_auth">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e15" value="повторить выбор" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7c776f;endArrow=classic;endFill=1;fontSize=12;" edge="1" parent="1" source="d_auth" target="a_show_hall">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1310" y="677"/>
+              <mxPoint x="1310" y="467"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e16" value="[да]" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7c776f;endArrow=classic;endFill=1;fontSize=12;" edge="1" parent="1" source="dec_auth" target="dec_seats">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e17" value="[нет]" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7c776f;endArrow=classic;endFill=1;fontSize=12;" edge="1" parent="1" source="dec_seats" target="a_need_seats">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e18" value="вернуться" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7c776f;endArrow=classic;endFill=1;fontSize=12;" edge="1" parent="1" source="a_need_seats" target="a_show_hall">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="965" y="694"/>
+              <mxPoint x="965" y="467"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e19" value="[да]" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7c776f;endArrow=classic;endFill=1;fontSize=12;" edge="1" parent="1" source="dec_seats" target="a_begin_tx">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e20" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7c776f;endArrow=classic;endFill=1;" edge="1" parent="1" source="a_begin_tx" target="d_check_seats">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e21" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7c776f;endArrow=classic;endFill=1;" edge="1" parent="1" source="d_check_seats" target="dec_free">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e22" value="[нет]" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7c776f;endArrow=classic;endFill=1;fontSize=12;" edge="1" parent="1" source="dec_free" target="a_rollback">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e23" value="вернуться" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7c776f;endArrow=classic;endFill=1;fontSize=12;" edge="1" parent="1" source="a_rollback" target="a_show_hall">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="980" y="946"/>
+              <mxPoint x="980" y="467"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e24" value="[да]" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7c776f;endArrow=classic;endFill=1;fontSize=12;" edge="1" parent="1" source="dec_free" target="d_insert">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e25" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7c776f;endArrow=classic;endFill=1;" edge="1" parent="1" source="d_insert" target="a_success">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e26" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7c776f;endArrow=classic;endFill=1;" edge="1" parent="1" source="a_success" target="u_open_my">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e27" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7c776f;endArrow=classic;endFill=1;" edge="1" parent="1" source="u_open_my" target="a_load_bookings">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e28" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7c776f;endArrow=classic;endFill=1;" edge="1" parent="1" source="a_load_bookings" target="d_select_bookings">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e29" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7c776f;endArrow=classic;endFill=1;" edge="1" parent="1" source="d_select_bookings" target="a_show_bookings">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e30" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7c776f;endArrow=classic;endFill=1;" edge="1" parent="1" source="a_show_bookings" target="dec_cancel">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e31" value="[нет]" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7c776f;endArrow=classic;endFill=1;fontSize=12;" edge="1" parent="1" source="dec_cancel" target="end_outer">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e32" value="[да]" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7c776f;endArrow=classic;endFill=1;fontSize=12;" edge="1" parent="1" source="dec_cancel" target="a_delete">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e33" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7c776f;endArrow=classic;endFill=1;" edge="1" parent="1" source="a_delete" target="d_delete">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e34" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7c776f;endArrow=classic;endFill=1;" edge="1" parent="1" source="d_delete" target="a_refresh">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e35" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7c776f;endArrow=classic;endFill=1;" edge="1" parent="1" source="a_refresh" target="end_outer">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
