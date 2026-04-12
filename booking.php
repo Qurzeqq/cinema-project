@@ -37,6 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $message = 'Для бронирования нужно войти в аккаунт.';
     } elseif (!empty($_POST['seats']) && is_array($_POST['seats'])) {
         $selectedSeats = $_POST['seats'];
+        $createdBookingIds = [];
 
         try {
             $pdo->beginTransaction();
@@ -71,10 +72,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $seatRow,
                     $seatNumber
                 ]);
+
+                $createdBookingIds[] = (int) $pdo->lastInsertId();
             }
 
             $pdo->commit();
-            $message = 'Бронирование успешно выполнено.';
+            $_SESSION['payment_booking_ids'] = $createdBookingIds;
+
+            header('Location: payment.php');
+            exit;
         } catch (Exception $e) {
             $pdo->rollBack();
             $message = 'Ошибка бронирования: ' . $e->getMessage();
@@ -158,10 +164,14 @@ foreach ($bookedSeatsRaw as $seat) {
             </div>
         </div>
 
-        <div class="hall-wrapper">
-            <div class="screen">Экран</div>
+        <form
+            method="POST"
+            class="booking-form"
+            data-ticket-price="<?= htmlspecialchars(number_format((float) $session['price'], 2, '.', ''), ENT_QUOTES) ?>"
+        >
+            <div class="hall-wrapper">
+                <div class="screen">Экран</div>
 
-            <form method="POST" class="booking-form">
                 <div class="hall-grid">
                     <?php for ($r = 1; $r <= $rows; $r++): ?>
                         <div class="hall-grid-row">
@@ -190,30 +200,99 @@ foreach ($bookedSeatsRaw as $seat) {
                         </div>
                     <?php endfor; ?>
                 </div>
+            </div>
+
+            <aside class="payment-summary" id="paymentSummary" aria-live="polite" hidden>
+                <h3>К оплате</h3>
+
+                <div class="payment-summary-row">
+                    <span>Цена билета</span>
+                    <strong id="paymentTicketPrice">0 ₽</strong>
+                </div>
+
+                <div class="payment-summary-row">
+                    <span>Билетов</span>
+                    <strong id="paymentSeatCount">0</strong>
+                </div>
+
+                <div class="payment-summary-seats">
+                    <span>Выбранные места</span>
+                    <strong id="paymentSeatList"></strong>
+                </div>
+
+                <div class="payment-summary-total">
+                    <span>Итого</span>
+                    <strong id="paymentTotalPrice">0 ₽</strong>
+                </div>
 
                 <button type="submit" class="btn booking-submit-btn">
                     Подтвердить бронирование
                 </button>
-            </form>
-        </div>
+            </aside>
+
+            <noscript>
+                <button type="submit" class="btn booking-submit-btn">
+                    Подтвердить бронирование
+                </button>
+            </noscript>
+        </form>
     </div>
 
 </main>
 
 <script>
-document.querySelectorAll('.seat-input').forEach(input => {
-    input.addEventListener('change', function () {
-        const seat = this.nextElementSibling;
-
-        if (this.checked) {
-            seat.classList.remove('free');
-            seat.classList.add('selected');
-        } else {
-            seat.classList.remove('selected');
-            seat.classList.add('free');
-        }
-    });
+const bookingForm = document.querySelector('.booking-form');
+const seatInputs = document.querySelectorAll('.seat-input');
+const paymentSummary = document.getElementById('paymentSummary');
+const paymentTicketPrice = document.getElementById('paymentTicketPrice');
+const paymentSeatCount = document.getElementById('paymentSeatCount');
+const paymentSeatList = document.getElementById('paymentSeatList');
+const paymentTotalPrice = document.getElementById('paymentTotalPrice');
+const ticketPrice = Number(bookingForm.dataset.ticketPrice) || 0;
+const priceFormatter = new Intl.NumberFormat('ru-RU', {
+    style: 'currency',
+    currency: 'RUB',
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 2
 });
+
+function formatPrice(value) {
+    return priceFormatter.format(value);
+}
+
+function updateSeatStyle(input) {
+    const seat = input.nextElementSibling;
+
+    if (!seat || input.disabled) {
+        return;
+    }
+
+    seat.classList.toggle('selected', input.checked);
+    seat.classList.toggle('free', !input.checked);
+}
+
+function updatePaymentSummary() {
+    const selectedSeats = Array.from(seatInputs).filter(input => input.checked);
+
+    seatInputs.forEach(updateSeatStyle);
+
+    paymentSummary.hidden = selectedSeats.length === 0;
+    paymentTicketPrice.textContent = formatPrice(ticketPrice);
+    paymentSeatCount.textContent = selectedSeats.length;
+    paymentSeatList.textContent = selectedSeats
+        .map(input => {
+            const [row, seat] = input.value.split('-');
+            return `Ряд ${row}, место ${seat}`;
+        })
+        .join(', ');
+    paymentTotalPrice.textContent = formatPrice(ticketPrice * selectedSeats.length);
+}
+
+seatInputs.forEach(input => {
+    input.addEventListener('change', updatePaymentSummary);
+});
+
+updatePaymentSummary();
 </script>
 
 </body>
