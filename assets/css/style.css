@@ -747,6 +747,28 @@ background:#e89aaa;
     text-align: center;
 }
 
+.payment-confirm-form {
+    margin: 0;
+}
+
+.payment-confirm-btn {
+    width: 100%;
+    margin-top: 0;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font: inherit;
+}
+
+.payment-mail-note {
+    margin: 0;
+    padding: 12px;
+    background: #e7f6ea;
+    border-radius: 8px;
+    color: #2f6b3d;
+    font-weight: bold;
+}
+
 @media (max-width: 900px) {
     .booking-form {
         flex-direction: column;

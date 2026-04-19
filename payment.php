@@ -1,6 +1,20 @@
 <?php
 session_start();
 require __DIR__ . '/includes/db.php';
+require __DIR__ . '/includes/ticket_mailer.php';
+
+function normalizeBookingIds(array $ids): array
+{
+    $ids = array_values(array_filter(array_map('intval', $ids)));
+    sort($ids);
+
+    return $ids;
+}
+
+function sameBookingIds(array $firstIds, array $secondIds): bool
+{
+    return normalizeBookingIds($firstIds) === normalizeBookingIds($secondIds);
+}
 
 if (!isset($_SESSION['user_id'])) {
     header('Location: login.php');
@@ -8,12 +22,25 @@ if (!isset($_SESSION['user_id'])) {
 }
 
 // Замените ссылку на вашу страницу оплаты.
-$paymentLink = 'https://i.pinimg.com/originals/6b/28/96/6b2896aadaaf5848b9136fa0e96c97fd.jpg';
+$paymentLink = 'https://img-webcalypt.ru/storage/memes/172109/20255/SCc1o8LpWuxyM8s8acouUWfD8iptvCafw4XLnf9AW60zkkhEvbDpYhH7A5k8LpsKM8AYqwGbnweN2jEa6UP5wjmoBM5E6W2HFrfhDyouNYF5DRZLJ7BMN8aZA3rOap94.jpeg';
 $qrImageUrl = 'https://api.qrserver.com/v1/create-qr-code/?size=260x260&data=' . rawurlencode($paymentLink);
 $userId = (int) $_SESSION['user_id'];
+$clientEmail = $_SESSION['user_email'] ?? '';
+$paymentMessage = $_SESSION['payment_message'] ?? '';
+$paymentMessageType = $_SESSION['payment_message_type'] ?? 'success';
+$sentBookingIds = $_SESSION['payment_email_sent_booking_ids'] ?? [];
+
+unset($_SESSION['payment_message'], $_SESSION['payment_message_type']);
+
+if (!filter_var($clientEmail, FILTER_VALIDATE_EMAIL)) {
+    $clientStmt = $pdo->prepare("SELECT email FROM clients WHERE id = ?");
+    $clientStmt->execute([$userId]);
+    $clientEmail = (string) $clientStmt->fetchColumn();
+}
+
 $bookingIds = $_SESSION['payment_booking_ids'] ?? [];
 $bookingIds = is_array($bookingIds)
-    ? array_values(array_filter(array_map('intval', $bookingIds)))
+    ? normalizeBookingIds($bookingIds)
     : [];
 
 $bookings = [];
@@ -47,6 +74,30 @@ $seatList = array_map(
     fn($booking) => 'Ряд ' . $booking['seat_row'] . ', место ' . $booking['seat_number'],
     $bookings
 );
+$emailAlreadySent = $bookings && sameBookingIds($bookingIds, is_array($sentBookingIds) ? $sentBookingIds : []);
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['confirm_payment'])) {
+    if (!$bookings) {
+        $_SESSION['payment_message'] = 'Нет данных для отправки билета. Выберите сеанс и места заново.';
+        $_SESSION['payment_message_type'] = 'error';
+    } elseif ($emailAlreadySent) {
+        $_SESSION['payment_message'] = 'Билет уже был отправлен на ' . $clientEmail . '.';
+        $_SESSION['payment_message_type'] = 'success';
+    } elseif (!filter_var($clientEmail, FILTER_VALIDATE_EMAIL)) {
+        $_SESSION['payment_message'] = 'Не удалось определить email пользователя.';
+        $_SESSION['payment_message_type'] = 'error';
+    } elseif (sendTicketEmail($clientEmail, $bookings)) {
+        $_SESSION['payment_email_sent_booking_ids'] = $bookingIds;
+        $_SESSION['payment_message'] = 'Оплата подтверждена. Билет отправлен на ' . $clientEmail . '.';
+        $_SESSION['payment_message_type'] = 'success';
+    } else {
+        $_SESSION['payment_message'] = 'Оплата подтверждена, но письмо не отправилось. Проверьте настройки почты в XAMPP.';
+        $_SESSION['payment_message_type'] = 'error';
+    }
+
+    header('Location: payment.php');
+    exit;
+}
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -68,10 +119,16 @@ $seatList = array_map(
 </header>
 
 <main class="container payment-page">
+    <?php if (!empty($paymentMessage)): ?>
+        <p class="message <?= htmlspecialchars($paymentMessageType) ?>">
+            <?= htmlspecialchars($paymentMessage) ?>
+        </p>
+    <?php endif; ?>
+
     <?php if ($bookings): ?>
         <section class="payment-card">
             <div class="payment-info">
-                <p class="payment-kicker">Бронь создана</p>
+                <p class="payment-kicker"><?= $emailAlreadySent ? 'Оплата подтверждена' : 'Бронь создана' ?></p>
                 <h2><?= htmlspecialchars($bookings[0]['title']) ?></h2>
 
                 <div class="payment-details">
@@ -109,6 +166,18 @@ $seatList = array_map(
                 >
                     Перейти к оплате
                 </a>
+
+                <?php if ($emailAlreadySent): ?>
+                    <p class="payment-mail-note">
+                        Билет уже отправлен на <?= htmlspecialchars($clientEmail) ?>.
+                    </p>
+                <?php else: ?>
+                    <form method="POST" class="payment-confirm-form">
+                        <button type="submit" name="confirm_payment" value="1" class="btn payment-confirm-btn">
+                            Подтвердить оплату и отправить билет
+                        </button>
+                    </form>
+                <?php endif; ?>
             </div>
         </section>
     <?php else: ?>
