@@ -1,0 +1,132 @@
+<mxfile host="app.diagrams.net" agent="Codex">
+  <diagram id="cinema-deployment" name="Cinema Deployment">
+    <mxGraphModel dx="1703" dy="937" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="bg" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f6f3ee;strokeColor=none;" value="" vertex="1">
+          <mxGeometry height="1000" width="1600" as="geometry" />
+        </mxCell>
+        <mxCell id="title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontStyle=1;fontSize=22;fontColor=#3b342d;" value="Диаграмма развертывания системы кинотеатра" vertex="1">
+          <mxGeometry height="30" width="880" x="360" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="client_group" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#edf5ff;strokeColor=#c8d8ec;arcSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingTop=10;fontStyle=1;fontSize=15;fontColor=#24374d;" value="Клиентское устройство" vertex="1">
+          <mxGeometry height="520" width="300" x="70" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="browser" parent="1" style="shape=mxgraph.uml2.node;whiteSpace=wrap;html=1;fillColor=#d9e8fb;strokeColor=#6c8ebf;fontStyle=1;fontSize=15;fontColor=#24374d;" value="Веб-браузер&#xa;Пользователь / Администратор" vertex="1">
+          <mxGeometry height="140" width="200" x="120" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="client_note" parent="1" style="shape=note;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;fontColor=#5a4720;" value="Доступ к сайту выполняется&#xa;через HTTP в браузере." vertex="1">
+          <mxGeometry height="100" width="230" x="105" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="server_group" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f2f8ef;strokeColor=#cadacf;arcSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingTop=10;fontStyle=1;fontSize=15;fontColor=#2d4a2d;" value="Сервер приложения" vertex="1">
+          <mxGeometry height="620" width="660" x="450" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="server_node" parent="1" style="shape=mxgraph.uml2.node;whiteSpace=wrap;html=1;fillColor=#d8ead6;strokeColor=#82b366;fontStyle=1;fontSize=16;fontColor=#2d4a2d;" value="Узел: localhost / XAMPP" vertex="1">
+          <mxGeometry height="470" width="520" x="520" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="apache" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eef7ed;strokeColor=#7aa06f;arcSize=14;fontSize=15;fontColor=#2d4a2d;" value="Apache" vertex="1">
+          <mxGeometry height="70" width="160" x="530" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="php_app" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eef7ed;strokeColor=#7aa06f;arcSize=14;fontSize=14;fontColor=#2d4a2d;" value="PHP-приложение&#xa;`index.php`, `booking.php`, `payment.php`,&#xa;`my_bookings.php`, `admin/*`, `includes/*`" vertex="1">
+          <mxGeometry height="110" width="210" x="810" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="sessions" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eef7ed;strokeColor=#7aa06f;arcSize=14;fontSize=15;fontColor=#2d4a2d;" value="PHP-сессии" vertex="1">
+          <mxGeometry height="70" width="160" x="540" y="450" as="geometry" />
+        </mxCell>
+        <mxCell id="assets" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eef7ed;strokeColor=#7aa06f;arcSize=14;fontSize=15;fontColor=#2d4a2d;" value="Статические ресурсы&#xa;CSS / интерфейс" vertex="1">
+          <mxGeometry height="70" width="210" x="790" y="455" as="geometry" />
+        </mxCell>
+        <mxCell id="db_group" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f0fa;strokeColor=#d8cde3;arcSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingTop=10;fontStyle=1;fontSize=15;fontColor=#3f3152;" value="Сервер базы данных" vertex="1">
+          <mxGeometry height="300" width="290" x="1180" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="mysql" parent="1" style="shape=mxgraph.uml2.node;whiteSpace=wrap;html=1;fillColor=#e8dcf7;strokeColor=#9375b2;fontStyle=1;fontSize=16;fontColor=#3f3152;" value="MySQL&#xa;База `cinema_db`" vertex="1">
+          <mxGeometry height="110" width="180" x="1235" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="tables" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5eefc;strokeColor=#9375b2;arcSize=14;fontSize=14;fontColor=#3f3152;" value="Таблицы:&#xa;`clients`, `films`, `sessions`, `booking`" vertex="1">
+          <mxGeometry height="70" width="220" x="1215" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="ext_group" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fdecec;strokeColor=#ecc0c0;arcSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingTop=10;fontStyle=1;fontSize=15;fontColor=#5a2d2d;" value="Внешние сервисы" vertex="1">
+          <mxGeometry height="320" width="300" x="1180" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="payment_service" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;arcSize=14;fontSize=15;fontColor=#5a2d2d;" value="Страница оплаты" vertex="1">
+          <mxGeometry height="60" width="180" x="1240" y="590" as="geometry" />
+        </mxCell>
+        <mxCell id="qr_service" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;arcSize=14;fontSize=15;fontColor=#5a2d2d;" value="Сервис QR-кода" vertex="1">
+          <mxGeometry height="60" width="180" x="1240" y="675" as="geometry" />
+        </mxCell>
+        <mxCell id="mail_service" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;arcSize=14;fontSize=15;fontColor=#5a2d2d;" value="Почтовый сервис" vertex="1">
+          <mxGeometry height="60" width="180" x="1240" y="760" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#4f81bd;fontSize=12;labelBackgroundColor=#f6f3ee;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="apache" value="HTTP">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="320" y="290" as="sourcePoint" />
+            <mxPoint x="590" y="270" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="apache" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#5d8a4b;fontSize=12;labelBackgroundColor=#f6f3ee;exitX=0.997;exitY=0.702;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.001;entryY=0.632;entryDx=0;entryDy=0;entryPerimeter=0;" target="php_app" value="обрабатывает запросы">
+          <mxGeometry relative="1" x="-0.0012" y="-14" as="geometry">
+            <mxPoint x="14" y="-14" as="offset" />
+            <mxPoint x="750" y="310" as="sourcePoint" />
+            <mxPoint x="790" y="310" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#5d8a4b;fontSize=12;labelBackgroundColor=#f6f3ee;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="assets" value="использует">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="895" y="365" as="sourcePoint" />
+            <mxPoint x="895" y="425" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#5d8a4b;fontSize=12;labelBackgroundColor=#f6f3ee;" value="хранит состояние">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="790" y="470" as="sourcePoint" />
+            <mxPoint x="750" y="460" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e5" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#9375b2;fontSize=12;labelBackgroundColor=#f6f3ee;" value="SQL">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1000" y="310" as="sourcePoint" />
+            <mxPoint x="1235" y="315" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e6" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#9375b2;fontSize=12;labelBackgroundColor=#f6f3ee;" value="структура данных">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1325" y="370" as="sourcePoint" />
+            <mxPoint x="1325" y="390" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e7" edge="1" parent="1" source="browser" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#b85450;fontSize=12;labelBackgroundColor=#f6f3ee;exitX=1.018;exitY=0.864;exitDx=0;exitDy=0;exitPerimeter=0;" value="HTTPS">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="320" y="381" />
+              <mxPoint x="1170" y="380" />
+              <mxPoint x="1170" y="620" />
+            </Array>
+            <mxPoint x="320" y="350" as="sourcePoint" />
+            <mxPoint x="1240" y="620" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e8" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#b85450;fontSize=12;labelBackgroundColor=#f6f3ee;" value="запрос QR">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1150" y="335" />
+              <mxPoint x="1150" y="705" />
+            </Array>
+            <mxPoint x="1000" y="335" as="sourcePoint" />
+            <mxPoint x="1240" y="705" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e9" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#b85450;fontSize=12;labelBackgroundColor=#f6f3ee;" value="отправка email">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1120" y="350" />
+              <mxPoint x="1120" y="790" />
+            </Array>
+            <mxPoint x="1000" y="350" as="sourcePoint" />
+            <mxPoint x="1240" y="790" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

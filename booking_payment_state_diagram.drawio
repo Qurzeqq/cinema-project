@@ -1,0 +1,151 @@
+<mxfile host="app.diagrams.net" agent="Codex">
+  <diagram id="booking-payment-state" name="Booking Payment State">
+    <mxGraphModel dx="1572" dy="865" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1500" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="bg" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f6f3ee;strokeColor=none;" value="" vertex="1">
+          <mxGeometry height="1000" width="1500" as="geometry" />
+        </mxCell>
+        <mxCell id="title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontStyle=1;fontSize=22;fontColor=#3b342d;" value="Диаграмма состояний: жизненный цикл бронирования" vertex="1">
+          <mxGeometry height="30" width="860" x="320" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="start" parent="1" style="ellipse;html=1;aspect=fixed;fillColor=#000000;strokeColor=#000000;" value="" vertex="1">
+          <mxGeometry height="24" width="24" x="40" y="164" as="geometry" />
+        </mxCell>
+        <mxCell id="state_session" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=16;fillColor=#eaf3ff;strokeColor=#6b8fc9;fontSize=14;fontStyle=1;fontColor=#24374d;spacing=10;" value="Выбор сеанса" vertex="1">
+          <mxGeometry height="72" width="220" x="180" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="state_seats" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=16;fillColor=#eaf3ff;strokeColor=#6b8fc9;fontSize=14;fontStyle=1;fontColor=#24374d;spacing=10;" value="Выбор мест" vertex="1">
+          <mxGeometry height="72" width="220" x="520" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="state_check" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=16;fillColor=#eaf3ff;strokeColor=#6b8fc9;fontSize=14;fontStyle=1;fontColor=#24374d;spacing=10;" value="Проверка бронирования&#xa;и доступности мест" vertex="1">
+          <mxGeometry height="88" width="260" x="1004" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="state_booking_created" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=16;fillColor=#d8ead6;strokeColor=#82b366;fontSize=14;fontStyle=1;fontColor=#2d4a2d;spacing=10;" value="Бронь создана" vertex="1">
+          <mxGeometry height="72" width="220" x="520" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="state_wait_payment" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=16;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=14;fontStyle=1;fontColor=#6d4c00;spacing=10;" value="Ожидание оплаты" vertex="1">
+          <mxGeometry height="72" width="220" x="956" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="state_ticket_sent" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=16;fillColor=#d8ead6;strokeColor=#82b366;fontSize=14;fontStyle=1;fontColor=#2d4a2d;spacing=10;" value="Билет отправлен" vertex="1">
+          <mxGeometry height="72" width="220" x="840" y="540" as="geometry" />
+        </mxCell>
+        <mxCell id="state_mail_error" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=16;fillColor=#fdecec;strokeColor=#cc7f7f;fontSize=14;fontStyle=1;fontColor=#5a2d2d;spacing=10;" value="Ошибка отправки билета" vertex="1">
+          <mxGeometry height="72" width="260" x="520" y="484" as="geometry" />
+        </mxCell>
+        <mxCell id="state_cancelled" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=16;fillColor=#f8cecc;strokeColor=#b85450;fontSize=14;fontStyle=1;fontColor=#5a2d2d;spacing=10;" value="Бронь отменена" vertex="1">
+          <mxGeometry height="72" width="220" x="210" y="540" as="geometry" />
+        </mxCell>
+        <mxCell id="end_outer_success" parent="1" style="ellipse;html=1;aspect=fixed;fillColor=#ffffff;strokeColor=#000000;strokeWidth=2;" value="" vertex="1">
+          <mxGeometry height="28" width="28" x="1236" y="562" as="geometry" />
+        </mxCell>
+        <mxCell id="end_inner_success" parent="1" style="ellipse;html=1;aspect=fixed;fillColor=#000000;strokeColor=#000000;" value="" vertex="1">
+          <mxGeometry height="16" width="16" x="1242" y="568" as="geometry" />
+        </mxCell>
+        <mxCell id="end_outer_cancel" parent="1" style="ellipse;html=1;aspect=fixed;fillColor=#ffffff;strokeColor=#000000;strokeWidth=2;" value="" vertex="1">
+          <mxGeometry height="28" width="28" x="38" y="562" as="geometry" />
+        </mxCell>
+        <mxCell id="end_inner_cancel" parent="1" style="ellipse;html=1;aspect=fixed;fillColor=#000000;strokeColor=#000000;" value="" vertex="1">
+          <mxGeometry height="16" width="16" x="44" y="568" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="start" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#4f81bd;fontSize=12;endArrow=classic;endFill=1;labelBackgroundColor=#f6f3ee;" target="state_session" value="открыт каталог сеансов">
+          <mxGeometry relative="1" x="-0.0345" y="16" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="state_session" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#4f81bd;fontSize=12;endArrow=classic;endFill=1;labelBackgroundColor=#f6f3ee;" target="state_seats" value="выбран `session_id`">
+          <mxGeometry relative="1" y="16" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="state_seats" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#4f81bd;fontSize=12;endArrow=classic;endFill=1;labelBackgroundColor=#f6f3ee;" target="state_check" value="нажато «Подтвердить бронирование»">
+          <mxGeometry relative="1" x="-0.0294" y="-16" as="geometry">
+            <mxPoint x="16" y="-16" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="state_check" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#4f81bd;fontSize=12;endArrow=classic;endFill=1;labelBackgroundColor=#f6f3ee;" target="state_seats" value="[места не выбраны / пользователь не вошел / место занято]">
+          <mxGeometry relative="1" x="0.2416" y="-10" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="1130" y="260" />
+              <mxPoint x="630" y="260" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="state_check" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#82b366;fontSize=12;endArrow=classic;endFill=1;labelBackgroundColor=#f6f3ee;exitX=0;exitY=0.75;exitDx=0;exitDy=0;" target="state_booking_created" value="[все места свободны] / COMMIT">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="970" y="206" />
+              <mxPoint x="970" y="290" />
+              <mxPoint x="630" y="290" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e6" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#d79b00;fontSize=12;endArrow=classic;endFill=1;labelBackgroundColor=#f6f3ee;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" target="state_wait_payment" value="сохранены `payment_booking_ids`&#xa;и выполнен redirect на `payment.php`">
+          <mxGeometry relative="1" x="0.0185" y="26" as="geometry">
+            <mxPoint as="offset" />
+            <mxPoint x="740" y="360" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e7" edge="1" parent="1" source="state_wait_payment" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#d79b00;fontSize=12;endArrow=classic;endFill=1;labelBackgroundColor=#f6f3ee;entryX=0.75;entryY=0;entryDx=0;entryDy=0;exitX=0.897;exitY=1.03;exitDx=0;exitDy=0;exitPerimeter=0;" target="state_ticket_sent" value="нажато «Подтвердить оплату&#xa;и отправить билет»">
+          <mxGeometry relative="1" x="0.0588" y="-16" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e8" edge="1" parent="1" source="state_wait_payment" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#cc7f7f;fontSize=12;endArrow=classic;endFill=1;labelBackgroundColor=#f6f3ee;exitX=0;exitY=0.75;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" target="state_mail_error" value="[email невалиден / нет данных / mail() не сработал]">
+          <mxGeometry relative="1" x="0.3102" y="-10" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="870" y="394" />
+              <mxPoint x="870" y="470" />
+              <mxPoint x="585" y="470" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e9" edge="1" parent="1" source="state_mail_error" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#cc7f7f;fontSize=12;endArrow=classic;endFill=1;labelBackgroundColor=#f6f3ee;" value="повторная попытка подтверждения">
+          <mxGeometry relative="1" x="-0.2857" y="10" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="980" y="520" />
+              <mxPoint x="980" y="412" />
+            </Array>
+            <mxPoint x="980" y="412" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e10" edge="1" parent="1" source="state_ticket_sent" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#82b366;fontSize=12;endArrow=classic;endFill=1;labelBackgroundColor=#f6f3ee;" target="end_outer_success" value="sendTicketEmail() успешно">
+          <mxGeometry relative="1" x="0.0227" y="16" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e11" edge="1" parent="1" source="state_booking_created" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#b85450;fontSize=12;endArrow=classic;endFill=1;labelBackgroundColor=#f6f3ee;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" target="state_cancelled" value="отмена в `my_bookings.php`">
+          <mxGeometry relative="1" x="0.0025" y="-16" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e12" edge="1" parent="1" source="state_wait_payment" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#b85450;fontSize=12;endArrow=classic;endFill=1;labelBackgroundColor=#f6f3ee;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" target="state_cancelled" value="отмена в `my_bookings.php`">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="830" y="376" />
+              <mxPoint x="830" y="420" />
+              <mxPoint x="320" y="420" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e13" edge="1" parent="1" source="state_ticket_sent" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#b85450;fontSize=12;endArrow=classic;endFill=1;labelBackgroundColor=#f6f3ee;" target="state_cancelled" value="отмена в `my_bookings.php`">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="440" y="576" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e14" edge="1" parent="1" source="state_cancelled" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#b85450;fontSize=12;endArrow=classic;endFill=1;labelBackgroundColor=#f6f3ee;" target="end_outer_cancel" value="DELETE из `booking`">
+          <mxGeometry relative="1" x="-0.0278" y="-16" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

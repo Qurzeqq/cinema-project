@@ -1,0 +1,135 @@
+<mxfile host="app.diagrams.net" agent="Codex">
+  <diagram id="cinema-class-diagram" name="Cinema Class Diagram">
+    <mxGraphModel dx="2044" dy="1124" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="bg" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f6f3ee;strokeColor=none;" value="" vertex="1">
+          <mxGeometry height="1100" width="1600" as="geometry" />
+        </mxCell>
+        <mxCell id="title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontStyle=1;fontSize=22;fontColor=#3b342d;" value="Диаграмма классов системы кинотеатра" vertex="1">
+          <mxGeometry height="30" width="880" x="360" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="client_h" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d9e8fb;strokeColor=#6c8ebf;fontStyle=1;fontSize=15;align=center;verticalAlign=middle;" value="Клиент" vertex="1">
+          <mxGeometry height="40" width="250" x="80" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="client_a" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;fontSize=13;align=left;verticalAlign=top;spacing=8;" value="+ идентификатор: int&#xa;+ email: string&#xa;+ пароль: string&#xa;+ роль: string" vertex="1">
+          <mxGeometry height="108" width="250" x="80" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="client_m" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;fontSize=13;align=left;verticalAlign=top;spacing=8;" value="+ зарегистрироваться()&#xa;+ войти()&#xa;+ выйти()" vertex="1">
+          <mxGeometry height="86" width="250" x="80" y="338" as="geometry" />
+        </mxCell>
+        <mxCell id="film_h" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d9e8fb;strokeColor=#6c8ebf;fontStyle=1;fontSize=15;align=center;verticalAlign=middle;" value="Фильм" vertex="1">
+          <mxGeometry height="40" width="250" x="520" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="film_a" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;fontSize=13;align=left;verticalAlign=top;spacing=8;" value="+ идентификатор: int&#xa;+ название: string&#xa;+ описание: text&#xa;+ длительность: int&#xa;+ цена: float" vertex="1">
+          <mxGeometry height="126" width="250" x="520" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="film_m" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;fontSize=13;align=left;verticalAlign=top;spacing=8;" value="+ получитьСеансы()" vertex="1">
+          <mxGeometry height="68" width="250" x="520" y="356" as="geometry" />
+        </mxCell>
+        <mxCell id="session_h" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d9e8fb;strokeColor=#6c8ebf;fontStyle=1;fontSize=15;align=center;verticalAlign=middle;" value="Сеанс" vertex="1">
+          <mxGeometry height="40" width="250" x="960" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="session_a" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;fontSize=13;align=left;verticalAlign=top;spacing=8;" value="+ идентификатор: int&#xa;+ датаСеанса: date&#xa;+ времяСеанса: time&#xa;+ зал: string" vertex="1">
+          <mxGeometry height="108" width="250" x="960" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="session_m" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;fontSize=13;align=left;verticalAlign=top;spacing=8;" value="+ получитьСвободныеМеста()&#xa;+ проверитьДоступностьМеста()" vertex="1">
+          <mxGeometry height="86" width="250" x="960" y="338" as="geometry" />
+        </mxCell>
+        <mxCell id="booking_h" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d9e8fb;strokeColor=#6c8ebf;fontStyle=1;fontSize=15;align=center;verticalAlign=middle;" value="Бронь" vertex="1">
+          <mxGeometry height="40" width="250" x="300" y="620" as="geometry" />
+        </mxCell>
+        <mxCell id="booking_a" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;fontSize=13;align=left;verticalAlign=top;spacing=8;" value="+ идентификатор: int&#xa;+ ряд: int&#xa;+ место: int&#xa;+ датаБрони: datetime" vertex="1">
+          <mxGeometry height="108" width="250" x="300" y="660" as="geometry" />
+        </mxCell>
+        <mxCell id="booking_m" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;fontSize=13;align=left;verticalAlign=top;spacing=8;" value="+ создать()&#xa;+ отменить()" vertex="1">
+          <mxGeometry height="68" width="250" x="300" y="768" as="geometry" />
+        </mxCell>
+        <mxCell id="payment_h" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontStyle=1;fontSize=15;align=center;verticalAlign=middle;" value="Оплата" vertex="1">
+          <mxGeometry height="40" width="250" x="740" y="620" as="geometry" />
+        </mxCell>
+        <mxCell id="payment_a" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff8ef;strokeColor=#d79b00;fontSize=13;align=left;verticalAlign=top;spacing=8;" value="+ ссылкаОплаты: string&#xa;+ qrСсылка: string&#xa;+ общаяСумма: float&#xa;+ статус: string" vertex="1">
+          <mxGeometry height="108" width="250" x="740" y="660" as="geometry" />
+        </mxCell>
+        <mxCell id="payment_m" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff8ef;strokeColor=#d79b00;fontSize=13;align=left;verticalAlign=top;spacing=8;" value="+ рассчитатьСумму()&#xa;+ подтвердитьОплату()" vertex="1">
+          <mxGeometry height="68" width="250" x="740" y="768" as="geometry" />
+        </mxCell>
+        <mxCell id="ticket_h" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d8ead6;strokeColor=#82b366;fontStyle=1;fontSize=15;align=center;verticalAlign=middle;" value="Билетный сервис" vertex="1">
+          <mxGeometry height="40" width="250" x="1180" y="620" as="geometry" />
+        </mxCell>
+        <mxCell id="ticket_a" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f7fcf5;strokeColor=#82b366;fontSize=13;align=left;verticalAlign=top;spacing=8;" value="+ адресОтправителя: string&#xa;+ имяОтправителя: string" vertex="1">
+          <mxGeometry height="90" width="250" x="1180" y="660" as="geometry" />
+        </mxCell>
+        <mxCell id="ticket_m" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f7fcf5;strokeColor=#82b366;fontSize=13;align=left;verticalAlign=top;spacing=8;" value="+ отправитьБилет()&#xa;+ сформироватьКодБилета()&#xa;+ сформироватьПисьмо()" vertex="1">
+          <mxGeometry height="86" width="250" x="1180" y="750" as="geometry" />
+        </mxCell>
+        <mxCell id="e_client_booking" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;strokeColor=#4f81bd;fontSize=12;labelBackgroundColor=#f6f3ee;" value="создает">
+          <mxGeometry relative="1" x="-0.2911" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="205" y="460" />
+              <mxPoint x="430" y="460" />
+              <mxPoint x="430" y="620" />
+            </Array>
+            <mxPoint x="205" y="424" as="sourcePoint" />
+            <mxPoint x="425" y="620" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_film_session" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;strokeColor=#4f81bd;fontSize=12;labelBackgroundColor=#f6f3ee;" value="содержит">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="770" y="290" as="sourcePoint" />
+            <mxPoint x="960" y="290" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_session_booking" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;strokeColor=#4f81bd;fontSize=12;labelBackgroundColor=#f6f3ee;" value="включает места">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1085" y="460" />
+              <mxPoint x="430" y="460" />
+              <mxPoint x="430" y="620" />
+            </Array>
+            <mxPoint x="1085" y="424" as="sourcePoint" />
+            <mxPoint x="425" y="620" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_payment_booking" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;strokeColor=#d79b00;fontSize=12;labelBackgroundColor=#f6f3ee;" value="оплачивает">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="740" y="714" as="sourcePoint" />
+            <mxPoint x="550" y="714" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_payment_ticket" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;endArrow=open;strokeColor=#82b366;fontSize=12;labelBackgroundColor=#f6f3ee;" value="использует">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="990" y="714" as="sourcePoint" />
+            <mxPoint x="1180" y="714" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m_client_booking_left" parent="1" style="text;html=1;strokeColor=none;fillColor=none;fontStyle=1;fontSize=12;fontColor=#24374d;" value="1" vertex="1">
+          <mxGeometry height="20" width="30" x="220" y="432" as="geometry" />
+        </mxCell>
+        <mxCell id="m_client_booking_right" parent="1" style="text;html=1;strokeColor=none;fillColor=none;fontStyle=1;fontSize=12;fontColor=#24374d;" value="0..*" vertex="1">
+          <mxGeometry height="20" width="40" x="410" y="592" as="geometry" />
+        </mxCell>
+        <mxCell id="m_film_session_left" parent="1" style="text;html=1;strokeColor=none;fillColor=none;fontStyle=1;fontSize=12;fontColor=#24374d;" value="1" vertex="1">
+          <mxGeometry height="20" width="30" x="748" y="266" as="geometry" />
+        </mxCell>
+        <mxCell id="m_film_session_right" parent="1" style="text;html=1;strokeColor=none;fillColor=none;fontStyle=1;fontSize=12;fontColor=#24374d;" value="0..*" vertex="1">
+          <mxGeometry height="20" width="40" x="934" y="266" as="geometry" />
+        </mxCell>
+        <mxCell id="m_session_booking_left" parent="1" style="text;html=1;strokeColor=none;fillColor=none;fontStyle=1;fontSize=12;fontColor=#24374d;" value="1" vertex="1">
+          <mxGeometry height="20" width="30" x="1065" y="432" as="geometry" />
+        </mxCell>
+        <mxCell id="m_session_booking_right" parent="1" style="text;html=1;strokeColor=none;fillColor=none;fontStyle=1;fontSize=12;fontColor=#24374d;" value="0..*" vertex="1">
+          <mxGeometry height="20" width="40" x="470" y="592" as="geometry" />
+        </mxCell>
+        <mxCell id="m_payment_booking_left" parent="1" style="text;html=1;strokeColor=none;fillColor=none;fontStyle=1;fontSize=12;fontColor=#6d4c00;" value="1" vertex="1">
+          <mxGeometry height="20" width="30" x="712" y="700" as="geometry" />
+        </mxCell>
+        <mxCell id="m_payment_booking_right" parent="1" style="text;html=1;strokeColor=none;fillColor=none;fontStyle=1;fontSize=12;fontColor=#6d4c00;" value="1..*" vertex="1">
+          <mxGeometry height="20" width="40" x="560" y="700" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

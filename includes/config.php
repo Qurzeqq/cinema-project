@@ -4,5 +4,5 @@ $dbname = 'cinema_db';
 $username = 'root';
 $password = '';
 
-$mailFrom = 'no-reply@cinema.local';
+$mailFrom = 'cinema.project.info@gmail.com';
 $mailFromName = 'Cinema';
