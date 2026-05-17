@@ -1,0 +1,41 @@
+<mxfile host="app.diagrams.net" modified="2026-05-17T00:00:00.000Z" agent="Codex" version="24.7.17" type="device">
+  <diagram id="database-structure" name="Database Structure">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="Database structure of the cinema booking system" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontStyle=1;fontSize=22;fontColor=#2f2f2f;" vertex="1" parent="1">
+          <mxGeometry x="235" y="40" width="700" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="clients" value="&lt;div style=&quot;font-size:16px;&quot;&gt;&lt;b&gt;clients&lt;/b&gt;&lt;/div&gt;&lt;hr/&gt;&lt;div align=&quot;left&quot;&gt;&lt;b&gt;PK&lt;/b&gt; id&lt;br/&gt;email&lt;br/&gt;password&lt;br/&gt;role&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#eaf3ff;strokeColor=#6b8fc9;fontSize=13;fontColor=#24374d;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="110" y="160" width="250" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="films" value="&lt;div style=&quot;font-size:16px;&quot;&gt;&lt;b&gt;films&lt;/b&gt;&lt;/div&gt;&lt;hr/&gt;&lt;div align=&quot;left&quot;&gt;&lt;b&gt;PK&lt;/b&gt; id&lt;br/&gt;title&lt;br/&gt;description&lt;br/&gt;duration&lt;br/&gt;price&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#eef7ed;strokeColor=#7aa06f;fontSize=13;fontColor=#2d4a2d;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="110" y="450" width="250" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="sessions" value="&lt;div style=&quot;font-size:16px;&quot;&gt;&lt;b&gt;sessions&lt;/b&gt;&lt;/div&gt;&lt;hr/&gt;&lt;div align=&quot;left&quot;&gt;&lt;b&gt;PK&lt;/b&gt; id&lt;br/&gt;&lt;b&gt;FK&lt;/b&gt; film_id&lt;br/&gt;session_date&lt;br/&gt;session_time&lt;br/&gt;hall_name&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=13;fontColor=#5a4720;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="760" y="450" width="250" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="booking" value="&lt;div style=&quot;font-size:16px;&quot;&gt;&lt;b&gt;booking&lt;/b&gt;&lt;/div&gt;&lt;hr/&gt;&lt;div align=&quot;left&quot;&gt;&lt;b&gt;PK&lt;/b&gt; id&lt;br/&gt;&lt;b&gt;FK&lt;/b&gt; client_id&lt;br/&gt;&lt;b&gt;FK&lt;/b&gt; session_id&lt;br/&gt;seat_row&lt;br/&gt;seat_number&lt;br/&gt;booked_at&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#f5eefc;strokeColor=#9375b2;fontSize=13;fontColor=#3f3152;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="760" y="150" width="250" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_clients_booking" value="1:N" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#6b8fc9;strokeWidth=2;endArrow=ERmany;endFill=0;startArrow=ERone;startFill=0;fontStyle=1;fontSize=13;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="clients" target="booking">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="430" y="235" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_films_sessions" value="1:N" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7aa06f;strokeWidth=2;endArrow=ERmany;endFill=0;startArrow=ERone;startFill=0;fontStyle=1;fontSize=13;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="films" target="sessions">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="440" y="535" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_sessions_booking" value="1:N" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#d6b656;strokeWidth=2;endArrow=ERmany;endFill=0;startArrow=ERone;startFill=0;fontStyle=1;fontSize=13;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="sessions" target="booking">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="note" value="A seat is identified by seat_row and seat_number within a selected session." style="shape=note;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#b7b7b7;fontSize=12;fontColor=#555555;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="440" y="665" width="290" height="70" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

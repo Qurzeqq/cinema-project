@@ -1,0 +1,216 @@
+<mxfile host="app.diagrams.net" modified="2026-05-05T00:00:00.000Z" agent="Codex" version="29.6.1">
+  <diagram id="cinema-business-process-tree-clean" name="Дерево бизнес-процессов">
+    <mxGraphModel dx="1600" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1900" pageHeight="1250" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="bg" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#faf9f6;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="1900" height="1250" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="title" value="Дерево бизнес-процессов системы бронирования билетов в кинотеатр" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontStyle=1;fontSize=25;fontColor=#2f3437;" vertex="1" parent="1">
+          <mxGeometry x="315" y="35" width="1270" height="42" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="root_process" value="A0&#xa;Управление системой онлайн-бронирования билетов в кинотеатр" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;fillColor=#fff2cc;strokeColor=#b28704;strokeWidth=2;fontStyle=1;fontSize=18;fontColor=#2f3437;align=center;verticalAlign=middle;spacing=10;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="630" y="105" width="640" height="86" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="line_root_down" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#8d8065;strokeColor=#8d8065;" vertex="1" parent="1">
+          <mxGeometry x="949" y="191" width="3" height="49" as="geometry"/>
+        </mxCell>
+        <mxCell id="line_top_bus" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#8d8065;strokeColor=#8d8065;" vertex="1" parent="1">
+          <mxGeometry x="260" y="239" width="1380" height="3" as="geometry"/>
+        </mxCell>
+        <mxCell id="line_to_users" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#6c8ebf;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="259" y="240" width="3" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="line_to_booking" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#82b366;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="719" y="240" width="3" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="line_to_admin" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d79b00;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="1179" y="240" width="3" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="line_to_support" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#9673a6;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="1639" y="240" width="3" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="users" value="A1&#xa;Управление пользователями" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;fillColor=#d9e8fb;strokeColor=#6c8ebf;strokeWidth=2;fontStyle=1;fontSize=16;fontColor=#23384f;align=center;verticalAlign=middle;spacing=8;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="300" width="360" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="booking" value="A2&#xa;Бронирование и покупка билета" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;fillColor=#d8ead6;strokeColor=#82b366;strokeWidth=2;fontStyle=1;fontSize=16;fontColor=#25452a;align=center;verticalAlign=middle;spacing=8;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="540" y="300" width="360" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="admin" value="A3&#xa;Административное управление кинотеатром" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;fillColor=#ffe6cc;strokeColor=#d79b00;strokeWidth=2;fontStyle=1;fontSize=16;fontColor=#5a3a12;align=center;verticalAlign=middle;spacing=8;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="1000" y="300" width="360" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="support" value="A4&#xa;Информационное обеспечение системы" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;fillColor=#e6dbf0;strokeColor=#9673a6;strokeWidth=2;fontStyle=1;fontSize=16;fontColor=#3f3152;align=center;verticalAlign=middle;spacing=8;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="1460" y="300" width="360" height="70" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="line_users_trunk" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#6c8ebf;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="104" y="370" width="3" height="364" as="geometry"/>
+        </mxCell>
+        <mxCell id="line_booking_trunk" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#82b366;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="564" y="370" width="3" height="504" as="geometry"/>
+        </mxCell>
+        <mxCell id="line_admin_trunk" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d79b00;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="1024" y="370" width="3" height="364" as="geometry"/>
+        </mxCell>
+        <mxCell id="line_support_trunk" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#9673a6;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="1484" y="370" width="3" height="434" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="user_1" value="A1.1 Регистрация нового клиента" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#edf5ff;strokeColor=#6c8ebf;fontSize=14;fontColor=#23384f;align=center;verticalAlign=middle;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="130" y="430" width="310" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="user_2" value="A1.2 Авторизация пользователя" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#edf5ff;strokeColor=#6c8ebf;fontSize=14;fontColor=#23384f;align=center;verticalAlign=middle;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="130" y="500" width="310" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="user_3" value="A1.3 Проверка роли и прав доступа" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#edf5ff;strokeColor=#6c8ebf;fontSize=14;fontColor=#23384f;align=center;verticalAlign=middle;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="130" y="570" width="310" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="user_4" value="A1.4 Просмотр личных бронирований" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#edf5ff;strokeColor=#6c8ebf;fontSize=14;fontColor=#23384f;align=center;verticalAlign=middle;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="130" y="640" width="310" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="user_5" value="A1.5 Завершение пользовательской сессии" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#edf5ff;strokeColor=#6c8ebf;fontSize=14;fontColor=#23384f;align=center;verticalAlign=middle;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="130" y="710" width="310" height="48" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="booking_1" value="A2.1 Просмотр афиши и поиск фильма" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#eef7ed;strokeColor=#82b366;fontSize=14;fontColor=#25452a;align=center;verticalAlign=middle;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="590" y="430" width="310" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="booking_2" value="A2.2 Выбор подходящего сеанса" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#eef7ed;strokeColor=#82b366;fontSize=14;fontColor=#25452a;align=center;verticalAlign=middle;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="590" y="500" width="310" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="booking_3" value="A2.3 Выбор свободных мест в зале" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#eef7ed;strokeColor=#82b366;fontSize=14;fontColor=#25452a;align=center;verticalAlign=middle;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="590" y="570" width="310" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="booking_4" value="A2.4 Создание бронирования" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#eef7ed;strokeColor=#82b366;fontSize=14;fontColor=#25452a;align=center;verticalAlign=middle;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="590" y="640" width="310" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="booking_5" value="A2.5 Переход к оплате заказа" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#eef7ed;strokeColor=#82b366;fontSize=14;fontColor=#25452a;align=center;verticalAlign=middle;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="590" y="710" width="310" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="booking_6" value="A2.6 Подтверждение оплаты" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#eef7ed;strokeColor=#82b366;fontSize=14;fontColor=#25452a;align=center;verticalAlign=middle;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="590" y="780" width="310" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="booking_7" value="A2.7 Получение электронного билета" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#eef7ed;strokeColor=#82b366;fontSize=14;fontColor=#25452a;align=center;verticalAlign=middle;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="590" y="850" width="310" height="48" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="admin_1" value="A3.1 Вход в панель администратора" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#fff1de;strokeColor=#d79b00;fontSize=14;fontColor=#5a3a12;align=center;verticalAlign=middle;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="1050" y="430" width="310" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="admin_2" value="A3.2 Просмотр статистики системы" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#fff1de;strokeColor=#d79b00;fontSize=14;fontColor=#5a3a12;align=center;verticalAlign=middle;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="1050" y="500" width="310" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="admin_3" value="A3.3 Управление фильмами" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#fff1de;strokeColor=#d79b00;fontSize=14;fontColor=#5a3a12;align=center;verticalAlign=middle;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="1050" y="570" width="310" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="admin_4" value="A3.4 Управление расписанием сеансов" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#fff1de;strokeColor=#d79b00;fontSize=14;fontColor=#5a3a12;align=center;verticalAlign=middle;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="1050" y="640" width="310" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="admin_5" value="A3.5 Контроль текущих бронирований" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#fff1de;strokeColor=#d79b00;fontSize=14;fontColor=#5a3a12;align=center;verticalAlign=middle;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="1050" y="710" width="310" height="48" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="support_1" value="A4.1 Хранение данных клиентов" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#f5eefc;strokeColor=#9673a6;fontSize=14;fontColor=#3f3152;align=center;verticalAlign=middle;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="1510" y="430" width="310" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="support_2" value="A4.2 Хранение фильмов и сеансов" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#f5eefc;strokeColor=#9673a6;fontSize=14;fontColor=#3f3152;align=center;verticalAlign=middle;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="1510" y="500" width="310" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="support_3" value="A4.3 Хранение данных бронирований" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#f5eefc;strokeColor=#9673a6;fontSize=14;fontColor=#3f3152;align=center;verticalAlign=middle;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="1510" y="570" width="310" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="support_4" value="A4.4 Проверка доступности мест" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#f5eefc;strokeColor=#9673a6;fontSize=14;fontColor=#3f3152;align=center;verticalAlign=middle;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="1510" y="640" width="310" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="support_5" value="A4.5 Формирование QR-кода оплаты" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#f5eefc;strokeColor=#9673a6;fontSize=14;fontColor=#3f3152;align=center;verticalAlign=middle;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="1510" y="710" width="310" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="support_6" value="A4.6 Отправка билета на электронную почту" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#f5eefc;strokeColor=#9673a6;fontSize=14;fontColor=#3f3152;align=center;verticalAlign=middle;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="1510" y="780" width="310" height="48" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="u_b1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#6c8ebf;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="105" y="453" width="25" height="3" as="geometry"/>
+        </mxCell>
+        <mxCell id="u_b2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#6c8ebf;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="105" y="523" width="25" height="3" as="geometry"/>
+        </mxCell>
+        <mxCell id="u_b3" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#6c8ebf;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="105" y="593" width="25" height="3" as="geometry"/>
+        </mxCell>
+        <mxCell id="u_b4" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#6c8ebf;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="105" y="663" width="25" height="3" as="geometry"/>
+        </mxCell>
+        <mxCell id="u_b5" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#6c8ebf;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="105" y="733" width="25" height="3" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="b_b1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#82b366;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="565" y="453" width="25" height="3" as="geometry"/>
+        </mxCell>
+        <mxCell id="b_b2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#82b366;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="565" y="523" width="25" height="3" as="geometry"/>
+        </mxCell>
+        <mxCell id="b_b3" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#82b366;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="565" y="593" width="25" height="3" as="geometry"/>
+        </mxCell>
+        <mxCell id="b_b4" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#82b366;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="565" y="663" width="25" height="3" as="geometry"/>
+        </mxCell>
+        <mxCell id="b_b5" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#82b366;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="565" y="733" width="25" height="3" as="geometry"/>
+        </mxCell>
+        <mxCell id="b_b6" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#82b366;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="565" y="803" width="25" height="3" as="geometry"/>
+        </mxCell>
+        <mxCell id="b_b7" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#82b366;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="565" y="873" width="25" height="3" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="a_b1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d79b00;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="1025" y="453" width="25" height="3" as="geometry"/>
+        </mxCell>
+        <mxCell id="a_b2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d79b00;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="1025" y="523" width="25" height="3" as="geometry"/>
+        </mxCell>
+        <mxCell id="a_b3" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d79b00;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="1025" y="593" width="25" height="3" as="geometry"/>
+        </mxCell>
+        <mxCell id="a_b4" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d79b00;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="1025" y="663" width="25" height="3" as="geometry"/>
+        </mxCell>
+        <mxCell id="a_b5" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d79b00;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="1025" y="733" width="25" height="3" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="s_b1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#9673a6;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="1485" y="453" width="25" height="3" as="geometry"/>
+        </mxCell>
+        <mxCell id="s_b2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#9673a6;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="1485" y="523" width="25" height="3" as="geometry"/>
+        </mxCell>
+        <mxCell id="s_b3" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#9673a6;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="1485" y="593" width="25" height="3" as="geometry"/>
+        </mxCell>
+        <mxCell id="s_b4" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#9673a6;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="1485" y="663" width="25" height="3" as="geometry"/>
+        </mxCell>
+        <mxCell id="s_b5" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#9673a6;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="1485" y="733" width="25" height="3" as="geometry"/>
+        </mxCell>
+        <mxCell id="s_b6" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#9673a6;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="1485" y="803" width="25" height="3" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="result" value="Результат: оформленное бронирование и электронный билет для клиента" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;fillColor=#ffffff;strokeColor=#b7a57a;strokeWidth=2;fontStyle=1;fontSize=15;fontColor=#4d463f;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="610" y="1030" width="680" height="58" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
